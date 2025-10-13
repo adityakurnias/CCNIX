@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     # Internet
-    firefox
+    # firefox
     thunderbird
     vesktop
 
