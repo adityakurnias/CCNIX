@@ -8,8 +8,11 @@
 		git
 		gh
 		asdf-vm
-
-		# lang
-		ruby
 	];
+
+	programs.git = {
+		enable = true;
+		userEmail = "adityakurniasaputra903@gmail.com";
+		userName = "adityakurnias";
+	};
 }

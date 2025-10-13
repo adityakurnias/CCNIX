@@ -21,5 +21,10 @@
     # Others
     sassc
     fastfetch
+
+    # CLI
+    eza
+    bat
+    fastfetch
   ];
 }

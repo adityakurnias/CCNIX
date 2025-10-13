@@ -2,15 +2,15 @@
 
 {
   home.packages = with pkgs; [
-    eza
-    bat
-    fastfetch
-    zsh-z
+    zsh-autosuggestions
     zsh-autocomplete
+    zsh-completions
+    asdf-vm
   ];
 
   programs.zsh = {
     enable = true;
+
     shellAliases = {
       ll = "eza -lgh --icons";
       ls = "eza --icons";
@@ -21,33 +21,20 @@
     initContent = ''
       fastfetch
 
-      
+      # ── ASDF COMPLETION ──────────────────────
+      mkdir -p "$ASDF_DATA_DIR/completions"
+      asdf completion zsh > "$ASDF_DATA_DIR/completions/_asdf" 2>/dev/null
+      fpath=("$ASDF_DATA_DIR/completions" $fpath)
+      autoload -Uz compinit && compinit
     '';
-
-    history = {
-      size = 10000;
-      share = true;
-    };
 
     oh-my-zsh = {
       enable = true;
-      plugins = [
-	"z"
-        "git"
-      ];
+      plugins = [ "git" "z" "asdf" ];
+      
       extraConfig = ''
-                # Required for autocomplete with box: https://unix.stackexchange.com/a/778868
-                zstyle ':completion:*' completer _expand _complete _ignored _approximate _expand_alias
-                zstyle ':autocomplete:*' default-context curcontext 
-                zstyle ':autocomplete:*' min-input 0
-
-                setopt HIST_FIND_NO_DUPS
-
-                autoload -Uz compinit
-                compinit
-
-                setopt autocd  # cd without writing 'cd'
-                setopt globdots # show dotfiles in autocomplete list
+        setopt autocd
+        setopt globdots
       '';
     };
   };

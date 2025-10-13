@@ -12,11 +12,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1760242361,
-        "narHash": "sha256-T1tC9jeRU0PdVZ4OPpaS1Yfpak5jGh4YEsXBM96AkGo=",
+        "lastModified": 1760296980,
+        "narHash": "sha256-0/JeuTXOv3pPXO/96u0rwuE9uW5IKgvSSyE1LwjUFZI=",
         "owner": "AvengeMedia",
         "repo": "DankMaterialShell",
-        "rev": "5d023804c179845c65d4b7d2f326efe599632ef9",
+        "rev": "cf2f74a38d085da2737fe162ca1719cd268612fe",
         "type": "github"
       },
       "original": {
@@ -94,11 +94,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1760241259,
-        "narHash": "sha256-DlLGn+4M6tIafoDsHr2WhHG2hrHrC24S2IL3+KAvjEU=",
+        "lastModified": 1760269647,
+        "narHash": "sha256-3Ud8x6GdgiXG1Wcntfl/iEMpO7UObSY0lQKb2qUSpAc=",
         "owner": "AvengeMedia",
         "repo": "danklinux",
-        "rev": "dae4c3ff4ce0feb930361c399747edb29d081775",
+        "rev": "6a0338b29f900c082222603f80034a7abb314a6a",
         "type": "github"
       },
       "original": {
@@ -114,11 +114,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1760239230,
-        "narHash": "sha256-eqSP/BAbQwNTlQ/6yuK0yILzZAPNNj91gp6oIfVtu/E=",
+        "lastModified": 1760312644,
+        "narHash": "sha256-U9SkK45314urw9P7MmjhEgiQwwD/BTj+T3HTuz1JU1Q=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c4aaddeaecc09554c92518fd904e3e84b497ed09",
+        "rev": "e121f3773fa596ecaba5b22e518936a632d72a90",
         "type": "github"
       },
       "original": {
@@ -224,11 +224,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1760244178,
-        "narHash": "sha256-y/0O99nN81uxDnAALaA45x9e2hVxn1PBNZC6/zZ6yro=",
+        "lastModified": 1760315601,
+        "narHash": "sha256-cvguRikKX0yXZ7jaK4Gt3qB1I33T5TzYZQf0Ampx8ko=",
         "owner": "outfoxxed",
         "repo": "quickshell",
-        "rev": "ea79eaceb0375a8a2ebdd55c60bf89c4167b264d",
+        "rev": "00858812f25b748d08b075a0d284093685fa3ffd",
         "type": "github"
       },
       "original": {
