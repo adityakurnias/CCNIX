@@ -5,11 +5,16 @@
 		neovim
 		zed-editor
 
+		# Languages
+		php
+
 		# Tools
 		git
 		gh
 		nodejs_24
 		pnpm
+		deno
+		php84Packages.composer
 	];
 
 	programs.git = {
