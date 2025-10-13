@@ -4,6 +4,7 @@
 {
   xdg.mime.enable = true;
   xdg.mimeApps.defaultApplications = {
+    enable = true;
     "text/html"              = "app.zen_browser.zen.desktop";
     "x-scheme-handler/http"  = "app.zen_browser.zen.desktop";
     "x-scheme-handler/https" = "app.zen_browser.zen.desktop";
@@ -16,8 +17,8 @@
   };
 
   home.sessionVariables = {
-    BROWSER = "flatpak run app.zen_browser.zen";
-    DEFAULT_BROWSER = "flatpak run app.zen_browser.zen";
+    BROWSER = "app.zen_browser.zen";
+    DEFAULT_BROWSER = "app.zen_browser.zen";
     # Gunakan fungsi ini untuk mengubah list menjadi string
     # XDG_DATA_DIRS = lib.strings.concatStringsSep ":" [
     #   # Menambahkan path Flatpak ke depan
