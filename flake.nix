@@ -44,14 +44,14 @@
     nixosConfigurations.ccnixos = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
-        ./hosts/default/configuration.nix
+        ./hosts/configuration.nix
         niri.nixosModules.niri
         home-manager.nixosModules.home-manager
         {
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.kurnias = import ./home/kurnias/home.nix;
+            users.kurnias = import ./home/home.nix;
             extraSpecialArgs = { inherit dankMaterialShell niri inputs; };
           };
         }

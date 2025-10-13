@@ -25,6 +25,8 @@
     # CLI
     eza
     bat
+    zoxide
     fastfetch
+    tree
   ];
 }

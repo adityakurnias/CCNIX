@@ -1,13 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    zsh-autosuggestions
-    zsh-autocomplete
-    zsh-completions
-    asdf-vm
-  ];
-
   programs.zsh = {
     enable = true;
 
@@ -20,13 +13,11 @@
 
     initContent = ''
       fastfetch
-
-      autoload -Uz compinit && compinit
     '';
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "z" "asdf" ];
+      plugins = [ "git" "z" ];
       
       extraConfig = ''
         setopt autocd

@@ -40,6 +40,8 @@
     variant = "";
   };
 
+  services.gnome.gnome-keyring.enable = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -83,10 +85,9 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  programs.zsh.enable = true;
+  programs.nix-ld.enable = true;
 
-    # Install firefox.
-  programs.firefox.enable = true;
+  programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
     vim
@@ -107,11 +108,10 @@
   environment.shells = with pkgs; [ zsh ];
 
   # A way to make my mic working, idk
-
   hardware.firmware = [
     (pkgs.stdenv.mkDerivation {
       name = "custom-hda-firmware";
-      src = ../../fw/hda-jack-retask.fw;
+      src = ../fw/hda-jack-retask.fw;
       dontUnpack = true;
       installPhase = ''
         mkdir -p $out/lib/firmware
