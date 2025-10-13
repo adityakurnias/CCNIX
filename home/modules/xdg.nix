@@ -1,13 +1,14 @@
-# Pastikan 'lib' ada di sini
 { pkgs, config, lib, ... }:
 
 {
   xdg.mime.enable = true;
-  xdg.mimeApps.defaultApplications = {
+  xdg.mimeApps ={
     enable = true;
-    "text/html"              = "app.zen_browser.zen.desktop";
-    "x-scheme-handler/http"  = "app.zen_browser.zen.desktop";
-    "x-scheme-handler/https" = "app.zen_browser.zen.desktop";
+    defaultApplications = {
+      "text/html"              = "app.zen_browser.zen.desktop";
+      "x-scheme-handler/http"  = "app.zen_browser.zen.desktop";
+      "x-scheme-handler/https" = "app.zen_browser.zen.desktop";
+    };
   };
 
   dconf.settings = {

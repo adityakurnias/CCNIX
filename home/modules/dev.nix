@@ -8,7 +8,8 @@
 		# Tools
 		git
 		gh
-		asdf-vm
+		nodejs_24
+		pnpm
 	];
 
 	programs.git = {
