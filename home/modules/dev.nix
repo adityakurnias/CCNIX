@@ -7,7 +7,10 @@
 
 		# Languages
 		php
-		
+
+		# LSP
+		nixd
+
 		# Tools
 		git
 		gh
