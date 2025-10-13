@@ -21,10 +21,6 @@
     initContent = ''
       fastfetch
 
-      # ── ASDF COMPLETION ──────────────────────
-      mkdir -p "$ASDF_DATA_DIR/completions"
-      asdf completion zsh > "$ASDF_DATA_DIR/completions/_asdf" 2>/dev/null
-      fpath=("$ASDF_DATA_DIR/completions" $fpath)
       autoload -Uz compinit && compinit
     '';
 

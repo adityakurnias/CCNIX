@@ -3,6 +3,7 @@
 		# Editors
 		vscode
 		neovim
+		zed-editor
 
 		# Tools
 		git

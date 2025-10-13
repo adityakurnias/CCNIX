@@ -19,6 +19,7 @@
     ./modules/apps.nix
     ./modules/games.nix
     ./modules/xdg.nix
+    ./modules/apps/discord.nix
   ];
 
   programs.dankMaterialShell.enable = true;
