@@ -7,7 +7,7 @@
 
 		# Languages
 		php
-
+		
 		# Tools
 		git
 		gh
