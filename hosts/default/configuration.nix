@@ -4,7 +4,6 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../../home/kurnias/modules/apps/discord.nix
     ];
 
   # Bootloader.

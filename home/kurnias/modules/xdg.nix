@@ -9,7 +9,7 @@
   };
 
   home.sessionVariables = {
-    BROWSER = "zen";
-    DEFAULT_BROWSER = "zen";
+    BROWSER = "app.zen_browser.zen.desktop";
+    DEFAULT_BROWSER = "app.zen_browser.zen.desktop";
   };
 }
