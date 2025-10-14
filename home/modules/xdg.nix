@@ -31,5 +31,7 @@
       xdg-desktop-portal-wlr
     ];
     xdgOpenUsePortal = true;
+    
+    config.common.default = "*";
   };
 }
