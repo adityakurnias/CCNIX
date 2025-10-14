@@ -1,15 +1,14 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.configurationLimit = 5;
+  boot.loader.systemd-boot.configurationLimit = 15;
 
   networking.hostName = "ccnixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -17,7 +16,10 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Set your time zone.
   time.timeZone = "Asia/Jakarta";
@@ -55,12 +57,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
   xdg.portal = {
@@ -76,7 +72,12 @@
   users.users.kurnias = {
     isNormalUser = true;
     description = "Kurnias";
-    extraGroups = [ "networkmanager" "wheel" "audio" "video"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "audio"
+      "video"
+    ];
     shell = pkgs.zsh;
   };
 
@@ -91,17 +92,14 @@
 
   environment.systemPackages = with pkgs; [
     vim
-    neovim
 
     wget
     curl
 
     git
-    gh
 
     kitty
 
-    bibata-cursors
     home-manager
   ];
 

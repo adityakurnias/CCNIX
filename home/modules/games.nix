@@ -1,6 +1,8 @@
-{ pkgs, ... }: {
-	home.packages = with pkgs; [
-		osu-lazer
-		steam
-	];
+{ pkgs, ... }:
+
+{
+  home.packages = with pkgs; [
+    osu-lazer
+    steam
+  ];
 }

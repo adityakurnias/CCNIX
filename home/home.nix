@@ -1,4 +1,7 @@
-{ config, pkgs, dankMaterialShell, niri, ... }:
+{
+  dankMaterialShell,
+  ...
+}:
 {
   home.username = "kurnias";
   home.homeDirectory = "/home/kurnias";

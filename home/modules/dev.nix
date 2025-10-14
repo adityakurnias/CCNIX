@@ -1,28 +1,31 @@
-{ config, pkgs, ... }: {
-	home.packages = with pkgs; [
-		# Editors
-		vscode
-		neovim
-		zed-editor
+{ pkgs, ... }:
 
-		# Languages
-		php
+{
+  home.packages = with pkgs; [
+    # Editors
+    vscode
+    neovim
+    zed-editor
 
-		# LSP
-		nixd
+    # Languages
+    php
 
-		# Tools
-		git
-		gh
-		nodejs_24
-		pnpm
-		deno
-		php84Packages.composer
-	];
+    # LSP / FMT
+    nixd
+    nixfmt-rfc-style
 
-	programs.git = {
-		enable = true;
-		userEmail = "adityakurniasaputra903@gmail.com";
-		userName = "adityakurnias";
-	};
+    # Tools
+    git
+    gh
+    nodejs_24
+    pnpm
+    deno
+    php84Packages.composer
+  ];
+
+  programs.git = {
+    enable = true;
+    userEmail = "adityakurniasaputra903@gmail.com";
+    userName = "adityakurnias";
+  };
 }
