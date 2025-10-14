@@ -3,9 +3,9 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./fw/firmware.nix
-    ./modules/environment.nix
-    ./modules/users.nix
+    ../fw/firmware.nix
+    ../modules/environment.nix
+    ../modules/users.nix
   ];
 
   # Bootloader.
