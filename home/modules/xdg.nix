@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   xdg.mime.enable = true;
   xdg.mimeApps ={
@@ -19,5 +21,15 @@
     BROWSER = "app.zen_browser.zen";
     DEFAULT_BROWSER = "app.zen_browser.zen";
     XDG_DATA_DIRS = "/var/lib/flatpak/exports/share";
+  };
+  
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-wlr
+    ];
+    xdgOpenUsePortal = true;
   };
 }

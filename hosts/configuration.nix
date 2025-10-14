@@ -1,8 +1,11 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
+    ./fw/firmware.nix
+    ./modules/environment.nix
+    ./modules/users.nix
   ];
 
   # Bootloader.
@@ -59,30 +62,6 @@
     pulse.enable = true;
   };
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-wlr
-    ];
-    xdgOpenUsePortal = true;
-  };
-
-  users.users.kurnias = {
-    isNormalUser = true;
-    description = "Kurnias";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "audio"
-      "video"
-    ];
-    shell = pkgs.zsh;
-  };
-
-  users.defaultUserShell = pkgs.zsh;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -90,38 +69,5 @@
 
   programs.zsh.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    vim
-
-    wget
-    curl
-
-    git
-
-    kitty
-
-    home-manager
-  ];
-
-  environment.shells = with pkgs; [ zsh ];
-
-  # A way to make my mic working, idk
-  hardware.firmware = [
-    (pkgs.stdenv.mkDerivation {
-      name = "custom-hda-firmware";
-      src = ../fw/hda-jack-retask.fw;
-      dontUnpack = true;
-      installPhase = ''
-        mkdir -p $out/lib/firmware
-        cp $src $out/lib/firmware/hda-jack-retask.fw
-      '';
-    })
-  ];
-
-  boot.extraModprobeConfig = ''
-    options snd-hda-intel patch=hda-jack-retask.fw
-  '';
-
   system.stateVersion = "25.05";
-
 }

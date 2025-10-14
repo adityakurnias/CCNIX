@@ -22,10 +22,4 @@
     deno
     php84Packages.composer
   ];
-
-  programs.git = {
-    enable = true;
-    userEmail = "adityakurniasaputra903@gmail.com";
-    userName = "adityakurnias";
-  };
 }

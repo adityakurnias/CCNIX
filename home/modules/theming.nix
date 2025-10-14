@@ -7,10 +7,10 @@
     bibata-cursors
   ];
 
-  home.pointerCursor = {
-    package = pkgs.bibata-cursors;
+  home.pointerCursor = with pkgs; {
+    package = bibata-cursors;
     name = "Bibata-Modern-Classic";
-    size = 16;
+    size = 12;
     gtk.enable = true;
   };
 
