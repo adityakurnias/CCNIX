@@ -23,6 +23,8 @@
 
     initContent = ''
       fastfetch
+
+      export PATH=/home/kurnias/.local/bin:$PATH
     '';
 
     oh-my-zsh = {

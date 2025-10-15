@@ -20,9 +20,9 @@
 
     # Others
     sassc
-    fastfetch
+    gnome-tweaks
 
-    # CLI
+    # CLI Tool
     eza
     bat
     zoxide

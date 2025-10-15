@@ -33,7 +33,16 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
+  # services.greetd = {
+    # enable = true;
+    # settings = {
+      # default_session = {
+        # command = "${pkgs.gtkgreet}/bin/gtkgreet --command 'niri'";
+        # user = "kurnias";
+      # };
+    # };
+  # };
+
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
