@@ -6,7 +6,6 @@
     brightnessctl
     cliphist
     wl-clipboard
-    #Audio
     pwvucontrol
     pavucontrol
     alsa-utils
@@ -17,6 +16,7 @@
     gnome-themes-extra
     gtk-engine-murrine
     matugen
+    fuzzel
 
     # Others
     sassc
@@ -28,5 +28,6 @@
     zoxide
     fastfetch
     tree
+    btop
   ];
 }
