@@ -36,26 +36,41 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, dankMaterialShell, niri, ... }@inputs:
-  let
-    system = "x86_64-linux";
-  in
-  {
-    nixosConfigurations.ccnixos = nixpkgs.lib.nixosSystem {
-      inherit system;
-      modules = [
-        ./hosts/configuration.nix
-        niri.nixosModules.niri
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.kurnias = import ./home/home.nix;
-            extraSpecialArgs = { inherit dankMaterialShell niri inputs; };
-          };
-        }
-      ];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      dankMaterialShell,
+      niri,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+    in
+    {
+      # --- Sistem utama ---
+      nixosConfigurations.ccnixos = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./hosts/configuration.nix
+          niri.nixosModules.niri
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.kurnias = import ./home/home.nix;
+              extraSpecialArgs = { inherit dankMaterialShell niri inputs; };
+            };
+          }
+        ];
+      };
+
+      homeConfigurations.kurnias = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs { inherit system; };
+        modules = [ ./home/home.nix ];
+        extraSpecialArgs = { inherit dankMaterialShell niri inputs; };
+      };
     };
-  };
 }

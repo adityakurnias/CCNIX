@@ -12,5 +12,6 @@
     material-symbols
     fira-code-symbols
     jetbrains-mono
+    fira-code
   ];
 }

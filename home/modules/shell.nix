@@ -7,24 +7,31 @@
       ls = "eza --icons";
       nixupdate = "sudo nix flake update";
       nixbuild = "sudo nixos-rebuild switch --flake /etc/nixos/#ccnixos";
-      
+      homebuild = "sudo home-manager switch --flake /etc/nixos/#ccnixos";
+
       # Git aliases
-      gs  = "git status";
-      ga  = "git add";
+      gs = "git status";
+      ga = "git add";
       gaa = "git add .";
-      gc  = "git commit";
+      gc = "git commit";
       gcm = "git commit -m";
-      gp  = "git push";
+      gp = "git push";
       gpl = "git pull";
       gco = "git checkout";
-      gb  = "git branch";
-      gl  = "git log --oneline --graph --decorate";
+      gb = "git branch";
+      gl = "git log --oneline --graph --decorate";
     };
 
     initContent = ''
       fastfetch
 
+      export AGENT_ROUTER_TOKEN="sk-YQLbQ2YMDihtwjUbHyrM6L4sGOOhdkQk2cQCrVewtI3eGM1z"
       export PATH=/home/kurnias/.local/bin:$PATH
+      export PNPM_HOME="/home/kurnias/.local/share/pnpm"
+      case ":$PATH:" in
+        *":$PNPM_HOME:"*) ;;
+        *) export PATH="$PNPM_HOME:$PATH" ;;
+      esac
     '';
 
     oh-my-zsh = {

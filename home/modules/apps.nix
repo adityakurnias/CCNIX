@@ -3,7 +3,6 @@
 {
   home.packages = with pkgs; [
     # Internet
-    # firefox
     thunderbird
     vesktop
 
@@ -15,7 +14,6 @@
     obs-studio
     gimp
     krita
-    # aseprite
 
     # Productivity
     libreoffice-fresh
