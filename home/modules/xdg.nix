@@ -22,16 +22,6 @@
     };
   };
 
-  # HAPUS ATAU KOMENTARI BLOK DI BAWAH INI
-  # home.sessionVariables = {
-  #   BROWSER = "app.zen_browser.zen";
-  #   DEFAULT_BROWSER = "app.zen_browser.zen";
-  #   XDG_DATA_DIRS = "${pkgs.lib.mkForce "${
-  #     config.home.sessionVariables.XDG_DATA_DIRS or ""
-  #   }:/usr/share:/usr/local/share:/var/lib/flatpak/exports/share:${config.home.homeDirectory}/.local/share"}";
-  # };
-
-  # CUKUP SISAKAN INI JIKA MASIH DIPERLUKAN
   home.sessionVariables = {
     BROWSER = "app.zen_browser.zen";
     DEFAULT_BROWSER = "app.zen_browser.zen";
