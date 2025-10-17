@@ -1,12 +1,17 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
   xdg.mime.enable = true;
-  xdg.mimeApps ={
+  xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "text/html"              = "app.zen_browser.zen.desktop";
-      "x-scheme-handler/http"  = "app.zen_browser.zen.desktop";
+      "text/html" = "app.zen_browser.zen.desktop";
+      "x-scheme-handler/http" = "app.zen_browser.zen.desktop";
       "x-scheme-handler/https" = "app.zen_browser.zen.desktop";
     };
   };
@@ -20,9 +25,11 @@
   home.sessionVariables = {
     BROWSER = "app.zen_browser.zen";
     DEFAULT_BROWSER = "app.zen_browser.zen";
-    XDG_DATA_DIRS = "/var/lib/flatpak/exports/share";
+    XDG_DATA_DIRS = "${pkgs.lib.mkForce "${
+      config.home.sessionVariables.XDG_DATA_DIRS or ""
+    }:/usr/share:/usr/local/share:/var/lib/flatpak/exports/share:${config.home.homeDirectory}/.local/share"}";
   };
-  
+
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
@@ -31,7 +38,7 @@
       xdg-desktop-portal-wlr
     ];
     xdgOpenUsePortal = true;
-    
+
     config.common.default = "*";
   };
 }
