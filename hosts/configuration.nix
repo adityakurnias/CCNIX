@@ -5,7 +5,9 @@
     ./hardware-configuration.nix
     ../fw/firmware.nix
     ../modules/environment.nix
+    ../modules/programs.nix
     ../modules/users.nix
+    ../modules/hardware.nix
   ];
 
   # Bootloader.
@@ -36,8 +38,6 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
-  programs.niri.enable = true;
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -63,10 +63,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  programs.nix-ld.enable = true;
-
-  programs.zsh.enable = true;
 
   system.stateVersion = "25.05";
 }
