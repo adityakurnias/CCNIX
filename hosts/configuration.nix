@@ -4,65 +4,22 @@
   imports = [
     ./hardware-configuration.nix
     ../fw/firmware.nix
+    # System modules (modularized)
     ../modules/environment.nix
-    ../modules/programs.nix
     ../modules/users.nix
+    ../modules/programs.nix
     ../modules/hardware.nix
+    ../modules/boot.nix
+    ../modules/nix.nix
+    ../modules/networking.nix
+    ../modules/locales.nix
+    ../modules/desktop.nix
+    ../modules/audio.nix
+    ../modules/printing.nix
+    ../modules/flatpak.nix
+    ../modules/nixpkgs.nix
+    ../modules/state.nix
   ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.configurationLimit = 15;
-
-  networking.hostName = "ccnixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
-  # Set your time zone.
-  time.timeZone = "Asia/Jakarta";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
 
   services.gnome.gnome-keyring.enable = true;
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  services.flatpak.enable = true;
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  system.stateVersion = "25.05";
 }

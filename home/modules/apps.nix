@@ -1,22 +1,10 @@
 { pkgs, config, ... }:
 
 {
-  home.packages = with pkgs; [
-    # Internet
-    thunderbird
-    vesktop
-
-    # Utility
-    localsend
-
-    # Multimedia
-    vlc
-    obs-studio
-    gimp
-    krita
-
-    # Productivity
-    libreoffice-fresh
-    obsidian
+  imports = [
+    ./apps/internet.nix
+    ./apps/utility.nix
+    ./apps/multimedia.nix
+    ./apps/productivity.nix
   ];
 }
