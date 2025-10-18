@@ -27,16 +27,16 @@
     DEFAULT_BROWSER = "app.zen_browser.zen";
   };
 
-
   xdg.portal = {
     enable = true;
+    xdgOpenUsePortal = true;
+
     extraPortals = with pkgs; [
       xdg-desktop-portal
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gnome
     ];
-    xdgOpenUsePortal = true;
 
-    config.common.default = "*";
+    config.common.default = [ "gnome" "gtk" ];
   };
 }

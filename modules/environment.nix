@@ -12,6 +12,7 @@
     kitty
 
     home-manager
+    wireplumber
   ];
 
   environment.shells = with pkgs; [ zsh ];

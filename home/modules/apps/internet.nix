@@ -4,5 +4,6 @@
   home.packages = with pkgs; [
     thunderbird
     vesktop
+    legcord
   ];
 }
