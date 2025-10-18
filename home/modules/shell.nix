@@ -25,7 +25,6 @@
     initContent = ''
       fastfetch
 
-      export AGENT_ROUTER_TOKEN="sk-YQLbQ2YMDihtwjUbHyrM6L4sGOOhdkQk2cQCrVewtI3eGM1z"
       export PATH=/home/kurnias/.local/bin:$PATH
       export PNPM_HOME="/home/kurnias/.local/share/pnpm"
       case ":$PATH:" in

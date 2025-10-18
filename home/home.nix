@@ -25,6 +25,7 @@
     ./modules/games.nix
     ./modules/xdg.nix
   ];
-
+  
+  home.sessionVariables.AGENT_ROUTER_TOKEN = builtins.getEnv "AGENT_ROUTER_TOKEN";
   programs.dankMaterialShell.enable = true;
 }
