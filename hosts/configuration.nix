@@ -8,6 +8,7 @@
     ../modules/environment.nix
     ../modules/users.nix
     ../modules/programs.nix
+    ../modules/services.nix
     ../modules/hardware.nix
     ../modules/boot.nix
     ../modules/nix.nix
@@ -21,5 +22,5 @@
     ../modules/state.nix
   ];
 
-  services.gnome.gnome-keyring.enable = true;
+  # services.gnome.gnome-keyring.enable = true;
 }

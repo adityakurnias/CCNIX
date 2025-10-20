@@ -10,6 +10,9 @@
     # Languages
     php
 
+    # DB
+    sqlite
+
     # LSP / FMT
     nixd
     nixfmt-rfc-style
