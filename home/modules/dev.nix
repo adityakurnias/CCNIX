@@ -8,10 +8,11 @@
     zed-editor
 
     # Languages
-    php
+    # php
 
     # DB
     sqlite
+    mariadb
 
     # LSP / FMT
     nixd
@@ -23,6 +24,6 @@
     nodejs_24
     pnpm
     deno
-    php84Packages.composer
+    ddev
   ];
 }

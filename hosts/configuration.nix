@@ -11,16 +11,25 @@
     ../modules/services.nix
     ../modules/hardware.nix
     ../modules/boot.nix
-    ../modules/nix.nix
     ../modules/networking.nix
     ../modules/locales.nix
     ../modules/desktop.nix
     ../modules/audio.nix
-    ../modules/printing.nix
-    ../modules/flatpak.nix
-    ../modules/nixpkgs.nix
-    ../modules/state.nix
+    
+    ../modules/dev/lamp.nix
+  ];
+  
+  # Docker
+  virtualisation.docker = {
+    enable = true;
+  };
+
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
   ];
 
-  # services.gnome.gnome-keyring.enable = true;
+  nixpkgs.config.allowUnfree = true;
+
+  system.stateVersion = "25.05";
 }

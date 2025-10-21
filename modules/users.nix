@@ -9,6 +9,7 @@
       "wheel"
       "audio"
       "video"
+      "docker"
     ];
     shell = pkgs.zsh;
   };
