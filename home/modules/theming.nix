@@ -1,8 +1,9 @@
 { pkgs, ... }:
 let
   tetoCursor = builtins.path {
-    path = ../../themes/TetoCursor;
+    path = ../themes/TetoCursor;
     name = "TetoCursor";
+    recursive = true;
   };
 in
 {
