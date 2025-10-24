@@ -12,7 +12,9 @@
 
     # DB
     sqlite
-    mariadb
+    dbeaver-bin
+    # mariadb
+    
 
     # LSP / FMT
     nixd

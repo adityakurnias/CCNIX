@@ -2,6 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    osu-lazer
+    osu-lazer-bin
   ];
 }

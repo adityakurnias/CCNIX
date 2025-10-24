@@ -14,6 +14,8 @@
 
     home-manager
     wireplumber
+
+    efibootmgr
   ];
 
   environment.shells = with pkgs; [ zsh ];

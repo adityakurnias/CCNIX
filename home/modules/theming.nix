@@ -1,17 +1,35 @@
 { pkgs, ... }:
-
+let
+  tetoCursor = builtins.path {
+    path = ../../themes/TetoCursor;
+    name = "TetoCursor";
+  };
+in
 {
-
   home.packages = with pkgs; [
     qt6ct
     bibata-cursors
   ];
 
-  home.pointerCursor = with pkgs; {
-    package = bibata-cursors;
-    name = "Bibata-Modern-Classic";
-    size = 12;
-    gtk.enable = true;
+  home.pointerCursor = {
+    name = "TetoCursor";
+    package = pkgs.buildEnv {
+      name = "teto-cursor-theme";
+      paths = [
+        (pkgs.runCommand "teto-cursor-theme" { } ''
+          mkdir -p $out/share/icons
+          cp -r ${tetoCursor} $out/share/icons/TetoCursor
+        '')
+      ];
+    };
+    size = 24;
+  };
+
+  gtk.cursorTheme.name = "TetoCursor";
+  gtk.cursorTheme.size = 24;
+  xsession.pointerCursor = {
+    name = "TetoCursor";
+    size = 24;
   };
 
   home.sessionVariables = {
