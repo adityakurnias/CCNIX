@@ -16,6 +16,13 @@
     wireplumber
 
     efibootmgr
+    
+    xorg.libX11
+    xorg.libXcursor
+    xorg.libXrandr
+    xorg.libXi
+    freetype
+    libglvnd
   ];
 
   environment.shells = with pkgs; [ zsh ];
