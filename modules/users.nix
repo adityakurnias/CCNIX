@@ -10,6 +10,7 @@
       "audio"
       "video"
       "docker"
+      "libglvnd"
     ];
     shell = pkgs.zsh;
   };

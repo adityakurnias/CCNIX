@@ -8,14 +8,13 @@
     zed-editor
 
     # Languages
-    # php
+    # php => moved to dev/lamp.nix
 
     # DB
     sqlite
     dbeaver-bin
-    # mariadb
+    # mariadb => moved to dev/lamp.nix
     
-
     # LSP / FMT
     nixd
     nixfmt-rfc-style
@@ -23,9 +22,11 @@
     # Tools
     git
     gh
+    ddev
+    
+    # JS devtools
     nodejs_24
     pnpm
     deno
-    ddev
   ];
 }

@@ -13,5 +13,6 @@
     fira-code-symbols
     jetbrains-mono
     fira-code
+    nerd-fonts.caskaydia-cove
   ];
 }

@@ -7,7 +7,6 @@
     cliphist
     wl-clipboard
     pwvucontrol
-    pavucontrol
     alsa-utils
     alsa-tools
 
@@ -16,18 +15,18 @@
     gnome-themes-extra
     gtk-engine-murrine
     matugen
-    fuzzel
 
     # Others
     sassc
     gnome-tweaks
+    fuzzel
 
     # CLI Tool
-    eza
-    bat
-    zoxide
-    fastfetch
-    tree
-    btop
+    eza # ls alternative
+    bat # cat alternative
+    zoxide # cd alternative
+    fastfetch 
+    tree # ls with tree
+    btop # task manager
   ];
 }

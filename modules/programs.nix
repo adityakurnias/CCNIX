@@ -1,4 +1,9 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
   programs.niri.enable = true;
@@ -13,4 +18,13 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
+
+  programs.virt-manager.enable = true;
+
+  users.groups.libvirtd.members = [ "kurnias" ];
+
+  virtualisation.libvirtd.enable = true;
+
+  virtualisation.spiceUSBRedirection.enable = true;
+
 }
