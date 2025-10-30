@@ -5,7 +5,6 @@
     shellAliases = {
       ll = "eza -lgh --icons";
       ls = "eza --icons";
-      nixupdate = "sudo nix flake update /etc/nixos/#ccnixos";
       nixbuild = "sudo nixos-rebuild switch --flake /etc/nixos/#ccnixos";
       homebuild = "home-manager switch --flake ~/CCNIX#kurnias";
 

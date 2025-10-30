@@ -29,6 +29,7 @@
     ./modules/apps.nix
     ./modules/games.nix
     ./modules/xdg.nix
+    ./modules/dev/lamp.nix
   ];
   
   programs.dankMaterialShell.enable = true;

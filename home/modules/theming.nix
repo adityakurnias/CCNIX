@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    qt6ct
+    kdePackages.qt6ct
     bibata-cursors
   ];
   
