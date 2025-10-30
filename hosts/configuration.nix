@@ -18,11 +18,6 @@
     
     ../modules/dev/lamp.nix
   ];
-  
-  # Docker
-  virtualisation.docker = {
-    enable = true;
-  };
 
   nix.settings.experimental-features = [
     "nix-command"

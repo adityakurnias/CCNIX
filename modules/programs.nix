@@ -1,7 +1,5 @@
 {
   pkgs,
-  config,
-  lib,
   ...
 }:
 
@@ -19,12 +17,12 @@
     dedicatedServer.openFirewall = true;
   };
 
-  programs.virt-manager.enable = true;
+  programs.virt-manager.enable = false;
 
   users.groups.libvirtd.members = [ "kurnias" ];
 
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd.enable = false;
 
-  virtualisation.spiceUSBRedirection.enable = true;
+  virtualisation.spiceUSBRedirection.enable = false;
 
 }
