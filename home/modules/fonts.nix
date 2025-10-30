@@ -14,5 +14,6 @@
     jetbrains-mono
     fira-code
     nerd-fonts.caskaydia-cove
+    rubik
   ];
 }

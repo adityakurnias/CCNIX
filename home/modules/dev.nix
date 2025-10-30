@@ -9,8 +9,9 @@
 
     # Languages
     # php => moved to dev/lamp.nix
+    rustup
 
-    # DB
+    # DBq
     sqlite
     dbeaver-bin
     # mariadb => moved to dev/lamp.nix

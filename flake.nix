@@ -13,20 +13,21 @@
       url = "github:outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    dgop = {
+      url = "github:AvengeMedia/dgop";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     dankMaterialShell = {
       url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.quickshell.follows = "quickshell";
+      inputs.dgop.follows = "dgop";
+      inputs.dms-cli.follows = "dms-cli";
     };
 
     dms-cli = {
       url = "github:AvengeMedia/danklinux";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    dgop = {
-      url = "github:AvengeMedia/dgop";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -54,7 +55,7 @@
         inherit system;
         modules = [
           ./hosts/configuration.nix
-          niri.nixosModules.niri
+          # niri.nixosModules.niri
           home-manager.nixosModules.home-manager
           {
             home-manager = {

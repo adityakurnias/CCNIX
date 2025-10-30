@@ -2,6 +2,7 @@
   dankMaterialShell,
   config,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -11,10 +12,13 @@
   home.stateVersion = "25.05";
 
   programs.home-manager.enable = true;
-
+  
+  nixpkgs.config.allowUnfree = true;
+  
   imports = [
-    dankMaterialShell.homeModules.dankMaterialShell.default
-    dankMaterialShell.homeModules.dankMaterialShell.niri
+    inputs.dankMaterialShell.homeModules.dankMaterialShell.default
+    inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
+    inputs.niri.homeModules.niri
 
     # Modules
     ./modules/shell.nix
@@ -28,4 +32,5 @@
   ];
   
   programs.dankMaterialShell.enable = true;
+  
 }

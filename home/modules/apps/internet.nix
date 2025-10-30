@@ -5,5 +5,6 @@
     thunderbird
     vesktop
     legcord
+    discord
   ];
 }
