@@ -16,6 +16,7 @@
     ../modules/desktop.nix
     ../modules/audio.nix
     
+    ../modules/dev/lamp.nix
   ];
   
   # Docker

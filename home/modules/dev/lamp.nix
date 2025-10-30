@@ -1,58 +1,30 @@
 { config, pkgs, ... }:
 
 {
-  services.httpd = {
-    enable = true;
-    enablePHP = true;
-    phpPackage = pkgs.php84;
-
-    virtualHosts = {
-      "site.local" = {
-        documentRoot = "/srv/www";
-        extraConfig = ''
-          <Directory /srv/www>
-            Options Indexes FollowSymLinks
-            AllowOverride All
-            Require all granted
-            DirectoryIndex index.php index.html
-          </Directory>
-        '';
-      };
-      
-      "phpmyadmin.local" = {
-        documentRoot = "/srv/www/phpmyadmin";
-        extraConfig = ''
-          <Directory "/srv/www/phpmyadmin">
-            Options Indexes FollowSymLinks
-            AllowOverride All
-            Require all granted
-            DirectoryIndex index.php index.html
-          </Directory>
-        '';
-      };
-    };
-  };
-
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-  };
-
-  environment.systemPackages = with pkgs; [
-    php84
-    php84Packages.composer
-  ];
-
-  users.users.wwwrun.extraGroups = [ "users" ];
-
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
-
-  networking.extraHosts = ''
-    127.0.0.1 site.local
-    127.0.0.1 phpmyadmin.local
-  '';
-
-  systemd.tmpfiles.rules = [
-    "d /srv/www 0755 kurnias users -"
+  home.packages = with pkgs; [
+    # Tambahkan lamp switch script
+    (writeShellScriptBin "lamp" ''
+      case "$1" in
+        start)
+          echo "🚀 Starting Apache & MariaDB..."
+          sudo systemctl start httpd mysql
+          ;;
+        stop)
+          echo "🛑 Stopping Apache & MariaDB..."
+          sudo systemctl stop httpd mysql
+          ;;
+        restart)
+          echo "🔁 Restarting Apache & MariaDB..."
+          sudo systemctl restart httpd mysql
+          ;;
+        status)
+          echo "📊 Service status:"
+          systemctl status httpd mysql --no-pager
+          ;;
+        *)
+          echo "Usage: lamp {start|stop|restart|status}"
+          ;;
+      esac
+    '')
   ];
 }
