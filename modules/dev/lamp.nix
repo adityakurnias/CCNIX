@@ -1,5 +1,4 @@
 { 
-  config, 
   pkgs,
   lib,
   ... 
@@ -8,7 +7,6 @@
 {
   services.httpd = {
     enable = true;
-    wantedBy = lib.mkForce [ ];
     enablePHP = true;
     phpPackage = pkgs.php84;
 
@@ -41,7 +39,6 @@
 
   services.mysql = {
     enable = true;
-    wantedBy = lib.mkForce [ ];
     package = pkgs.mariadb;
   };
 
@@ -58,6 +55,9 @@
     127.0.0.1 site.local
     127.0.0.1 phpmyadmin.local
   '';
+
+  systemd.services.httpd.wantedBy = lib.mkForce [];
+  systemd.services.mysql.wantedBy = lib.mkForce [];
 
   systemd.tmpfiles.rules = [
     "d /srv/www 0755 kurnias users -"
