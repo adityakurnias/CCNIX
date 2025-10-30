@@ -17,6 +17,7 @@
     ../modules/audio.nix
     
     ../modules/dev/lamp.nix
+    ../modules/dev/docker.nix
   ];
 
   nix.settings.experimental-features = [
