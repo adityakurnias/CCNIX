@@ -3,7 +3,7 @@
   "logo": {
     "source": "~/.config/fastfetch/ccnobg.png",
     "type": "auto",
-    "width": 36,
+    "width": 36 ,
     "padding": {
       "top": 4,
       "left": 1,
