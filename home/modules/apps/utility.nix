@@ -8,5 +8,6 @@
     wineWowPackages.staging
     winetricks
     bottles
+    kdePackages.dolphin
   ];
 }

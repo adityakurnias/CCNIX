@@ -12,13 +12,14 @@
   home.stateVersion = "25.05";
 
   programs.home-manager.enable = true;
-  
+
   nixpkgs.config.allowUnfree = true;
-  
+
   imports = [
     inputs.dankMaterialShell.homeModules.dankMaterialShell.default
     inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
     inputs.niri.homeModules.niri
+    inputs.zen-browser.homeModules.beta
 
     # Modules
     ./modules/shell.nix
@@ -31,7 +32,8 @@
     ./modules/xdg.nix
     ./modules/dev/lamp.nix
   ];
-  
+
   programs.dankMaterialShell.enable = true;
-  
+  programs.zen-browser.enable = true;
+
 }

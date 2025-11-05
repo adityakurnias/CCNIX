@@ -4,10 +4,7 @@
   home.packages = with pkgs; [
     kdePackages.qt6ct
     adw-gtk3
+    adwaita-qt
     bibata-cursors
   ];
-  
-  home.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "qt6ct";
-  };
 }
