@@ -2,27 +2,29 @@
   pkgs,
   ...
 }:
-
 {
   xdg.mime.enable = true;
+
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "text/html" = "app.zen_browser.zen.desktop";
-      "x-scheme-handler/http" = "app.zen_browser.zen.desktop";
-      "x-scheme-handler/https" = "app.zen_browser.zen.desktop";
+      "text/html" = "zen-beta.desktop";
+      "x-scheme-handler/http" = "zen-beta.desktop";
+      "x-scheme-handler/https" = "zen-beta.desktop";
     };
   };
+  
+  xdg.configFile."mimeapps.list".force = true;
 
   dconf.settings = {
     "org/gnome/desktop/default-applications/web" = {
-      "browser" = "app.zen_browser.zen.desktop";
+      browser = "zen-beta";
     };
   };
 
   home.sessionVariables = {
-    BROWSER = "app.zen_browser.zen";
-    DEFAULT_BROWSER = "app.zen_browser.zen";
+    BROWSER = "zen-beta";
+    DEFAULT_BROWSER = "zen-beta";
   };
 
   xdg.portal = {
@@ -35,6 +37,9 @@
       xdg-desktop-portal-gnome
     ];
 
-    config.common.default = [ "gnome" "gtk" ];
+    config.common.default = [
+      "gnome"
+      "gtk"
+    ];
   };
 }
