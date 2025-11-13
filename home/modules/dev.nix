@@ -10,6 +10,7 @@
     # Languages
     # php => moved to dev/lamp.nix
     rustup
+    go
 
     # DBq
     sqlite
@@ -24,10 +25,12 @@
     git
     gh
     ddev
+    android-tools
     
     # JS devtools
     nodejs_24
     pnpm
     deno
+    bun
   ];
 }
