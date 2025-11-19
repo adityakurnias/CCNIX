@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     localsend
+    scrcpy
     
     # Wine 
     wineWowPackages.staging

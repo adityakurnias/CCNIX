@@ -6,11 +6,14 @@
     vscode
     neovim
     zed-editor
+    jetbrains.idea-community
+    # eclipses.eclipse-java => use flatpak 
 
     # Languages
     # php => moved to dev/lamp.nix
     rustup
     go
+    javaPackages.compiler.temurin-bin.jdk-25
 
     # DBq
     sqlite
@@ -26,6 +29,7 @@
     gh
     ddev
     android-tools
+    bruno
     
     # JS devtools
     nodejs_24
