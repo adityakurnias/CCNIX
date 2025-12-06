@@ -5,5 +5,6 @@
     vesktop
     legcord
     discord
+    
   ];
 }

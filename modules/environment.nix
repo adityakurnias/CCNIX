@@ -16,6 +16,7 @@
 
     # Home Manager
     home-manager
+    
     # Linux, Flash & Boot
     efibootmgr
     ntfs3g

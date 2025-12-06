@@ -7,6 +7,7 @@
     neovim
     zed-editor
     jetbrains.idea-community
+    antigravity
     # eclipses.eclipse-java => use flatpak 
 
     # Languages
@@ -25,7 +26,6 @@
     nixfmt-rfc-style
 
     # Tools
-    git
     gh
     ddev
     android-tools

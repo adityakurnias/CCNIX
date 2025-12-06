@@ -7,6 +7,7 @@
     extraPackages = with pkgs; [
       intel-media-driver
       intel-vaapi-driver
+      intel-compute-runtime
       libvdpau-va-gl
       vulkan-loader
       vulkan-tools

@@ -2,27 +2,22 @@
 
 {
   home.packages = with pkgs; [
-    # Tambahkan lamp switch script
     (writeShellScriptBin "lamp" ''
-      case "$1" in
-        start)
-          echo "🚀 Starting Apache & MariaDB..."
-          sudo systemctl start httpd mysql
+      service=$1
+      action=$2
+
+      case "$service" in
+        apache)
+          sudo systemctl $action httpd
           ;;
-        stop)
-          echo "🛑 Stopping Apache & MariaDB..."
-          sudo systemctl stop httpd mysql
-          ;;
-        restart)
-          echo "🔁 Restarting Apache & MariaDB..."
-          sudo systemctl restart httpd mysql
-          ;;
-        status)
-          echo "📊 Service status:"
-          systemctl status httpd mysql --no-pager
+        mariadb)
+          sudo systemctl $action mysql
           ;;
         *)
-          echo "Usage: lamp {start|stop|restart|status}"
+          echo "Usage:"
+          echo "  lamp apache {start|stop|restart|status}"
+          echo "  lamp mariadb {start|stop|restart|status}"
+          exit 1
           ;;
       esac
     '')

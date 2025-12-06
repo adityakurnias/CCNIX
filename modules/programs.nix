@@ -20,6 +20,8 @@
   programs.virt-manager.enable = false;
 
   users.groups.libvirtd.members = [ "kurnias" ];
+  
+  virtualisation.waydroid.enable = false;
 
   virtualisation.libvirtd.enable = false;
 
