@@ -31,6 +31,7 @@
     ./modules/games.nix
     ./modules/xdg.nix
     ./modules/dev/lamp.nix
+    ./modules/dev/docker.nix
   ];
 
   programs.dankMaterialShell = {
@@ -41,6 +42,4 @@
       restartIfChanged = true;   # Auto-restart dms.service when dankMaterialShell changes
     };
   };
-  
-  programs.zen-browser.enable = true;
 }

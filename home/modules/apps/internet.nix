@@ -4,7 +4,9 @@
   home.packages = with pkgs; [
     vesktop
     legcord
-    discord
-    
+    discord-ptb
+    google-chrome
   ];
+  
+  programs.zen-browser.enable = true;
 }
