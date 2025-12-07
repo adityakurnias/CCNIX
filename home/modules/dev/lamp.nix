@@ -1,84 +1,33 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
-  services.httpd = {
-    enable = true;
-    enablePHP = true;
-    phpPackage = pkgs.php84;
-
-    virtualHosts = {
-      "site.local" = {
-        documentRoot = "/srv/www";
-        extraConfig = ''
-          <Directory /srv/www>
-            Options Indexes FollowSymLinks
-            AllowOverride All
-            Require all granted
-            DirectoryIndex index.php index.html
-          </Directory>
-        '';
-      };
-
-      "phpmyadmin.local" = {
-        documentRoot = "/srv/www/phpmyadmin";
-        extraConfig = ''
-          <Directory "/srv/www/phpmyadmin">
-            Options Indexes FollowSymLinks
-            AllowOverride All
-            Require all granted
-            DirectoryIndex index.php index.html
-          </Directory>
-        '';
-      };
-    };
-  };
-
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-  };
-
-  systemd.services.httpd.wantedBy = lib.mkForce [ ];
-  systemd.services.mysql.wantedBy = lib.mkForce [ ];
-
-  systemd.tmpfiles.rules = [
-    "d /srv/www 0755 kurnias users -"
-  ];
-
-  networking.firewall.allowedTCPPorts = [
-    80
-    443
-  ];
-
-  networking.extraHosts = ''
-    127.0.0.1 site.local
-    127.0.0.1 phpmyadmin.local
-  '';
-
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     php84
     php84Packages.composer
-  ];
 
-  users.users.wwwrun.extraGroups = [ "users" ];
-
-  home.packages = with pkgs; [
     (writeShellScriptBin "lamp" ''
       service=$1
       action=$2
 
       case "$service" in
-        apache)
-          sudo systemctl $action httpd
-          ;;
-        mariadb)
-          sudo systemctl $action mysql
-          ;;
+        a)
+            sudo systemctl $action httpd
+            ;;
+        m)
+            sudo systemctl $action mysql
+            ;;
         *)
-          echo "Usage:"
-          echo "  lamp apache {start|stop|restart|status}"
-          echo "  lamp mariadb {start|stop|restart|status}"
-          exit 1
+            echo "a == apache"
+            echo "m == mariadb"
+            echo "Usage:"
+            echo "  lamp a {start|stop|restart|status}"
+            echo "  lamp m {start|stop|restart|status}"
+            exit 1
           ;;
       esac
     '')

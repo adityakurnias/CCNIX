@@ -15,6 +15,10 @@
     ../modules/locales.nix
     ../modules/desktop.nix
     ../modules/audio.nix
+    
+    # Development modules
+    ../modules/dev/lamp.nix
+    ../modules/dev/docker.nix
   ];
 
   nix.settings.experimental-features = [

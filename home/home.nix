@@ -31,7 +31,6 @@
     ./modules/games.nix
     ./modules/xdg.nix
     ./modules/dev/lamp.nix
-    ./modules/dev/docker.nix
   ];
 
   programs.dankMaterialShell = {
