@@ -32,6 +32,6 @@
       "ventoy-1.1.07"
     ];
   };
-
+  
   system.stateVersion = "25.05";
 }

@@ -25,6 +25,7 @@
       fastfetch
 
       export PATH=/home/kurnias/.local/bin:$PATH
+      export PATH="/home/kurnias/.bun/bin:$PATH"
       export PNPM_HOME="/home/kurnias/.local/share/pnpm"
       case ":$PATH:" in
         *":$PNPM_HOME:"*) ;;

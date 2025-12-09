@@ -1,7 +1,4 @@
 {
-  dankMaterialShell,
-  config,
-  pkgs,
   inputs,
   ...
 }:

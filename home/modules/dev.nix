@@ -15,7 +15,8 @@
     # php => moved to dev/lamp.nix
     rustup
     go
-    javaPackages.compiler.temurin-bin.jdk-25
+    # javaPackages.compiler.temurin-bin.jdk-25
+    javaPackages.compiler.temurin-bin.jdk-21
 
     # DBq
     sqlite
