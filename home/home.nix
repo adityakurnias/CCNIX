@@ -1,5 +1,6 @@
 {
   inputs,
+  pkgs,
   ...
 }:
 
@@ -37,5 +38,7 @@
       enable = true;             # Systemd service for auto-start
       restartIfChanged = true;   # Auto-restart dms.service when dankMaterialShell changes
     };
+    
+    quickshell.package = pkgs.quickshell;
   };
 }

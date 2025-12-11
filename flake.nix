@@ -9,10 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    quickshell = {
-      url = "github:outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # quickshell = {
+    #   url = "github:outfoxxed/quickshell";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     
     dgop = {
       url = "github:AvengeMedia/dgop";
@@ -25,11 +25,6 @@
       inputs.dgop.follows = "dgop";
     };
 
-    # dms-cli = {
-    #   url = "github:AvengeMedia/danklinux";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,8 +32,6 @@
     
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
-      # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
-      # to have it up-to-date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
