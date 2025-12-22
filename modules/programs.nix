@@ -12,7 +12,6 @@
 
   programs.steam = {
     enable = true;
-    extraPackages = with pkgs; [ mangohud ];
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };

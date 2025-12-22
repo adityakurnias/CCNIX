@@ -5,7 +5,6 @@
     # Editors
     vscode
     neovim
-    # zed-editor
     zed-editor-fhs
     jetbrains.idea-community
     antigravity

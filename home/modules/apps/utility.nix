@@ -10,7 +10,7 @@
     # Wine 
     wineWowPackages.staging
     winetricks
-    bottles
+    mangohud
     kdePackages.dolphin
   ];
 }

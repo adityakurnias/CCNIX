@@ -3,8 +3,7 @@
 {
   home.packages = with pkgs; [
     vesktop
-    legcord
-    discord-ptb
+    discord
     google-chrome
   ];
   
