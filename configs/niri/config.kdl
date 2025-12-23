@@ -11,16 +11,17 @@ config-notification {
 input {
     keyboard {
         xkb {
+            
         }
         numlock
     }
     touchpad {
-	tap
-	natural-scroll
+        tap
+        natural-scroll
     }
     mouse {
-    }
-    trackpoint {
+        accel-profile "flat"
+        accel-speed 0.2
     }
 }
 
