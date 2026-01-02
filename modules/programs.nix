@@ -1,5 +1,7 @@
 {
   pkgs,
+  lib,
+  config,
   ...
 }:
 
@@ -10,12 +12,6 @@
 
   programs.zsh.enable = true;
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
-
   programs.virt-manager.enable = false;
 
   users.groups.libvirtd.members = [ "kurnias" ];
@@ -25,5 +21,4 @@
   virtualisation.libvirtd.enable = false;
 
   virtualisation.spiceUSBRedirection.enable = false;
-
 }

@@ -4,21 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ../fw/firmware.nix
-    # System modules (modularized)
-    ../modules/environment.nix
-    ../modules/users.nix
-    ../modules/programs.nix
-    ../modules/services.nix
-    ../modules/hardware.nix
-    ../modules/boot.nix
-    ../modules/networking.nix
-    ../modules/locales.nix
-    ../modules/desktop.nix
-    ../modules/audio.nix
-    
-    # Development modules
-    ../modules/dev/lamp.nix
-    ../modules/dev/docker.nix
+    ../modules
   ];
 
   nix.settings.experimental-features = [

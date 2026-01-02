@@ -6,9 +6,9 @@
     vscode
     neovim
     zed-editor-fhs
-    jetbrains.idea-community
+    jetbrains.idea
     antigravity
-    # eclipses.eclipse-java => use flatpak 
+    # eclipses.eclipse-java => uses flatpak 
 
     # Languages
     # php => moved to dev/lamp.nix
