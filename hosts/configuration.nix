@@ -6,6 +6,8 @@
     ../fw/firmware.nix
     ../modules
   ];
+  
+  steam.enable = true;
 
   nix.settings.experimental-features = [
     "nix-command"
