@@ -18,17 +18,8 @@
     inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
     inputs.niri.homeModules.niri
     inputs.zen-browser.homeModules.beta
-
-    # Modules
-    ./modules/shell.nix
-    ./modules/fonts.nix
-    ./modules/packages.nix
-    ./modules/dev.nix
-    ./modules/theming.nix
-    ./modules/apps.nix
-    ./modules/games.nix
-    ./modules/xdg.nix
-    ./modules/dev/lamp.nix
+    
+    ./modules
   ];
 
   programs.dankMaterialShell = {
