@@ -9,11 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # quickshell = {
-    #   url = "github:outfoxxed/quickshell";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    
     dgop = {
       url = "github:AvengeMedia/dgop";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,54 +24,61 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     zed-editor = {
       url = "github:zed-industries/zed";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      dankMaterialShell,
-      niri,
-      ...
-    }@inputs:
-    let
-      system = "x86_64-linux";
-    in
-    {
-      # --- Sistem utama ---
-      nixosConfigurations.ccnixos = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./hosts/configuration.nix
-          # niri.nixosModules.niri
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "backup";
-              users.kurnias = import ./home/home.nix;
-              extraSpecialArgs = { inherit dankMaterialShell niri inputs; };
-            };
-          }
+  outputs = { self, nixpkgs, home-manager, dankMaterialShell, niri, ... }@inputs:
+  let
+    system = "x86_64-linux";
+
+    pkgs = import nixpkgs {
+      inherit system;
+      
+      config = {
+        allowUnfree = true;
+        permittedInsecurePackages = [
+          "ventoy-1.1.07"
         ];
       };
-
-      homeConfigurations.kurnias = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { inherit system; };
-        modules = [ ./home/home.nix ];
-        extraSpecialArgs = { inherit dankMaterialShell niri inputs; };
-      };
     };
+  in
+  {
+    nixosConfigurations.ccnixos = nixpkgs.lib.nixosSystem {
+      inherit system;
+      pkgs = pkgs;
+
+      modules = [
+        ({ ... }: {
+          nixpkgs.overlays = import ./overlays;
+        })
+        
+        ./hosts/configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.kurnias = import ./home/home.nix;
+            extraSpecialArgs = { inherit inputs dankMaterialShell niri; };
+          };
+        }
+      ];
+    };
+
+    homeConfigurations.kurnias =
+      home-manager.lib.homeManagerConfiguration {
+        pkgs = pkgs;
+        modules = [ ./home/home.nix ];
+        extraSpecialArgs = { inherit inputs dankMaterialShell niri; };
+      };
+  };
 }

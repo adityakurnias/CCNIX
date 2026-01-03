@@ -27,7 +27,6 @@
     gh
     ddev
     android-tools
-    bruno
     
     # JS devtools
     nodejs_24
