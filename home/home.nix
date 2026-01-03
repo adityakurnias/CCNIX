@@ -18,6 +18,7 @@
     inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
     inputs.niri.homeModules.niri
     inputs.zen-browser.homeModules.beta
+    inputs.zed-editor.packages.${pkgs.system}.default
     
     ./modules
   ];
