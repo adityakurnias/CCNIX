@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    vesktop
+    # vesktop
     discord
     google-chrome
   ];
