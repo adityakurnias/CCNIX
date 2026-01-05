@@ -5,7 +5,7 @@
     # Editors
     vscode
     neovim
-    # zed-editor-fhs => using flake for now
+    zed-editor
     jetbrains.idea
     antigravity
 

@@ -11,8 +11,6 @@
 
   programs.home-manager.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
-
   imports = [
     inputs.dankMaterialShell.homeModules.dankMaterialShell.default
     inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
@@ -20,10 +18,6 @@
     inputs.zen-browser.homeModules.beta
     
     ./modules
-  ];
-  
-  home.packages = [
-    inputs.zed-editor.packages.${pkgs.system}.default
   ];
 
   programs.dankMaterialShell = {

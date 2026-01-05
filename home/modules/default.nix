@@ -2,13 +2,13 @@
 
 {
   imports = [
-    ./shell.nix
+    ./apps
+    ./dev
     ./fonts.nix
+    ./games.nix
     ./packages.nix
-    ./dev.nix
+    ./shell.nix
     ./theming.nix
     ./xdg.nix
-    ./dev/lamp.nix
-    ./apps
   ];
 }
