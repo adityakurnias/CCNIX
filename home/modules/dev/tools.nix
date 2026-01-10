@@ -27,6 +27,7 @@
     gh
     ddev
     android-tools
+    arion
     
     # JS devtools
     nodejs_24

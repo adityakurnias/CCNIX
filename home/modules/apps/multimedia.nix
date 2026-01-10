@@ -5,6 +5,6 @@
     vlc
     gimp
     krita
-    # aseprite
+    aseprite
   ];
 }

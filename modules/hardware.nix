@@ -4,7 +4,7 @@
   services.xserver.videoDrivers = [ "modesetting" ];
   
   environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "iHD";     # Prefer the modern iHD backend
+    # LIBVA_DRIVER_NAME = "iHD";     # Prefer the modern iHD backend
     # VDPAU_DRIVER = "va_gl";      # Only if using libvdpau-va-gl
   };
   
@@ -24,7 +24,10 @@
       mesa
     ];
     extraPackages32 = with pkgs.pkgsi686Linux; [
+      intel-media-driver 
+      intel-vaapi-driver
       vulkan-loader
+      libGL
       mesa
     ];
   };
