@@ -21,7 +21,7 @@
     
     # LSP / FMT
     nixd
-    nixfmt-rfc-style
+    nixfmt
 
     # Tools
     gh

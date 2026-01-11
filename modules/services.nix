@@ -6,4 +6,5 @@
   services.flatpak.enable = true;
   services.printing.enable = false;
   services.gvfs.enable = true;
+  services.upower.enable = true;
 }

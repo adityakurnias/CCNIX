@@ -52,10 +52,6 @@
       pkgs = pkgs;
 
       modules = [
-        ({ ... }: {
-          nixpkgs.overlays = import ./overlays;
-        })
-        
         ./hosts/configuration.nix
         home-manager.nixosModules.home-manager
         {
