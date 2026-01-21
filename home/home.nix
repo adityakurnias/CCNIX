@@ -12,8 +12,8 @@
   programs.home-manager.enable = true;
 
   imports = [
-    inputs.dankMaterialShell.homeModules.dankMaterialShell.default
-    inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
+    inputs.dankMaterialShell.homeModules.dank-material-shell
+    inputs.dankMaterialShell.homeModules.niri
     inputs.niri.homeModules.niri
     inputs.zen-browser.homeModules.beta
     

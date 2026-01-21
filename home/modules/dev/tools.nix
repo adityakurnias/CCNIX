@@ -28,6 +28,7 @@
     ddev
     android-tools
     arion
+    asdf-vm
     
     # JS devtools
     nodejs_24
