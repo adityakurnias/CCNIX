@@ -26,7 +26,7 @@
     BROWSER = "zen-beta";
     DEFAULT_BROWSER = "zen-beta";
   };
-
+  
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [

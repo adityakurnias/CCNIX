@@ -17,7 +17,6 @@
     dankMaterialShell = {
       url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.dgop.follows = "dgop";
     };
 
     niri = {
@@ -31,7 +30,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, dankMaterialShell, niri, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, dankMaterialShell, niri, dgop, ... }@inputs:
   let
     system = "x86_64-linux";
 
@@ -59,12 +58,14 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             users.kurnias = import ./home/home.nix;
-            extraSpecialArgs = { inherit inputs dankMaterialShell niri; };
+            extraSpecialArgs = { 
+              inherit inputs dankMaterialShell niri; };
+            backupFileExtension = "backup";
           };
         }
       ];
     };
-
+    
     homeConfigurations.kurnias =
       home-manager.lib.homeManagerConfiguration {
         pkgs = pkgs;
