@@ -1,10 +1,12 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
     ../fw/firmware.nix
     ../modules
+    
+    inputs.dankMaterialShell.nixosModules.greeter
   ];
   
   steam.enable = true;

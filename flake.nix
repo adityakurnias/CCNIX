@@ -49,6 +49,10 @@
     nixosConfigurations.ccnixos = nixpkgs.lib.nixosSystem {
       inherit system;
       pkgs = pkgs;
+      
+      specialArgs = {
+        inherit inputs;
+      };
 
       modules = [
         ./hosts/configuration.nix

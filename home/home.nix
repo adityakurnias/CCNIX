@@ -25,8 +25,12 @@
   programs.dank-material-shell = {
     enable = true;
     niri = {
-      includes.enable = true;
-      enableSpawn = true; # Auto-start DMS with niri, if enabled
+      includes.enable = false;
+    };
+    
+    systemd = {
+      enable = true;
+      restartIfChanged = true;
     };
 
     dgop.package = inputs.dgop.packages.${pkgs.system}.default;

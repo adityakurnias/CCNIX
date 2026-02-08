@@ -5,6 +5,7 @@
     vesktop
     discord
     google-chrome
+    firefox
   ];
   
   programs.zen-browser.enable = true;
