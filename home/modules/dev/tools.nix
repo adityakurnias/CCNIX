@@ -14,6 +14,7 @@
     go
     # javaPackages.compiler.temurin-bin.jdk-25
     javaPackages.compiler.temurin-bin.jdk-21
+    ruby_4_0
 
     # DBq
     sqlite

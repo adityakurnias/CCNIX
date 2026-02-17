@@ -8,7 +8,7 @@
 {
   programs.dank-material-shell.greeter = {
     enable = true;
-    compositor.name = "niri";  # Or "hyprland" or "sway"
+    compositor.name = "niri"; 
   };
   
   programs.niri.enable = true;
