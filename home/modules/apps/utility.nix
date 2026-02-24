@@ -8,8 +8,8 @@
     # waydroid => moved to /modules/programs.nix
     
     # Wine 
-    wineWowPackages.staging
-    winetricks
+    # wineWowPackages.staging
+    # winetricks
     mangohud
     kdePackages.dolphin
   ];

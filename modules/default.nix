@@ -12,6 +12,7 @@
     ./locales.nix
     ./desktop.nix
     ./audio.nix
+    ./fix.nix
     ./steam
     ./dev
   ];

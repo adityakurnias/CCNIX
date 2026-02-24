@@ -21,16 +21,14 @@
 
     ./modules
   ];
+  
+  programs.zen-browser.suppressXdgMigrationWarning = true;
 
   programs.dank-material-shell = {
     enable = true;
     niri = {
       includes.enable = false;
-    };
-    
-    systemd = {
-      enable = true;
-      restartIfChanged = true;
+      enableSpawn = true;
     };
 
     dgop.package = inputs.dgop.packages.${pkgs.system}.default;

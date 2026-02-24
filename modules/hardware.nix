@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   hardware.graphics = {
@@ -40,4 +40,8 @@
   fileSystems."/".options = [ "noatime" "nodiratime" ];
   systemd.services.NetworkManager-wait-online.enable = false;
   services.fstrim.enable = true; 
+  
+  systemd.services."home-manager-kurnias" = {
+    after = [ "graphical.target" ];
+  };
 }
