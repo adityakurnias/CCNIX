@@ -28,8 +28,12 @@
     enable = true;
     niri = {
       includes.enable = false;
-      enableSpawn = true;
     };
+    
+    systemd = {
+       enable = true;             # Systemd service for auto-start
+       restartIfChanged = true;   # Auto-restart dms.service when dank-material-shell changes
+     };
 
     dgop.package = inputs.dgop.packages.${pkgs.system}.default;
 

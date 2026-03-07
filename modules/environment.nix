@@ -16,6 +16,7 @@
     ntfs3g
     woeusb
     ventoy
+    nh
   ];
 
   environment.shells = with pkgs; [ zsh ];

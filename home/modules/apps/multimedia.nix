@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     vlc
     gimp
-    krita
+    # krita
     aseprite
   ];
 }

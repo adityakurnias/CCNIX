@@ -16,5 +16,10 @@
     "flakes"
   ];
   
+  nix.settings = {
+    max-jobs = "auto";
+    cores = 0;
+  };
+  
   system.stateVersion = "25.05";
 }

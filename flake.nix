@@ -15,7 +15,7 @@
     };
 
     dankMaterialShell = {
-      url = "github:AvengeMedia/DankMaterialShell/stable";
+      url = "github:AvengeMedia/DankMaterialShell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -33,37 +33,38 @@
   outputs = { self, nixpkgs, home-manager, dankMaterialShell, niri, dgop, ... }@inputs:
   let
     system = "x86_64-linux";
-
-    pkgs = import nixpkgs {
-      inherit system;
-      
-      config = {
-        allowUnfree = true;
-        permittedInsecurePackages = [
-          "ventoy-1.1.10"
-        ];
-      };
-    };
   in
   {
     nixosConfigurations.ccnixos = nixpkgs.lib.nixosSystem {
       inherit system;
-      pkgs = pkgs;
-      
+    
       specialArgs = {
         inherit inputs;
       };
-
+    
       modules = [
+        {
+          nixpkgs = {
+            config = {
+              allowUnfree = true;
+              permittedInsecurePackages = [
+                "ventoy-1.1.10"
+              ];
+            };
+          };
+        }
+    
         ./hosts/configuration.nix
         home-manager.nixosModules.home-manager
+    
         {
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
             users.kurnias = import ./home/home.nix;
             extraSpecialArgs = { 
-              inherit inputs dankMaterialShell niri; };
+              inherit inputs dankMaterialShell niri;
+            };
             backupFileExtension = "backup";
           };
         }
@@ -72,9 +73,10 @@
     
     homeConfigurations.kurnias =
       home-manager.lib.homeManagerConfiguration {
-        pkgs = pkgs;
         modules = [ ./home/home.nix ];
-        extraSpecialArgs = { inherit inputs dankMaterialShell niri; };
+        extraSpecialArgs = {
+          inherit inputs dankMaterialShell niri;
+        };
       };
   };
 }

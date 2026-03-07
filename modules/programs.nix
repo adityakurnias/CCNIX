@@ -8,11 +8,18 @@
 {
   programs.dank-material-shell.greeter = {
     enable = true;
-    compositor.name = "niri"; 
+    compositor.name = "niri";
   };
-  
+
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/kurnias/CCNIX"; # sets NH_OS_FLAKE variable for you
+  };
+
   programs.niri.enable = true;
-  
+
   programs.xwayland.enable = true;
 
   programs.nix-ld.enable = true;
@@ -22,7 +29,7 @@
   programs.virt-manager.enable = false;
 
   users.groups.libvirtd.members = [ "kurnias" ];
-  
+
   virtualisation.waydroid.enable = false;
 
   virtualisation.libvirtd.enable = false;
