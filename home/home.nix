@@ -22,8 +22,6 @@
     ./modules
   ];
   
-  programs.zen-browser.suppressXdgMigrationWarning = true;
-
   programs.dank-material-shell = {
     enable = true;
     niri = {

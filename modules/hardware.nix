@@ -26,9 +26,7 @@
     algorithm = "zstd";
     memoryPercent = 50;
   };
-  services.xserver.videoDrivers = [ "modesetting" ];
   powerManagement.cpuFreqGovernor = "performance";
-  services.earlyoom.enable = true;
   nix.settings.auto-optimise-store = true;
   
   services.journald.extraConfig = ''
@@ -40,8 +38,4 @@
   fileSystems."/".options = [ "noatime" "nodiratime" ];
   systemd.services.NetworkManager-wait-online.enable = false;
   services.fstrim.enable = true; 
-  
-  systemd.services."home-manager-kurnias" = {
-    after = [ "graphical.target" ];
-  };
 }

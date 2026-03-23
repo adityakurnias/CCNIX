@@ -7,4 +7,6 @@
   services.printing.enable = false;
   services.gvfs.enable = true;
   services.upower.enable = true;
+  services.earlyoom.enable = true;
+  
 }
