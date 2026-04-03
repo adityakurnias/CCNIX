@@ -9,11 +9,11 @@
     shellAliases = {
       ll = "eza -lgh --icons";
       ls = "eza --icons";
-    
+
       nixbuild = "nh os switch";
       homebuild = "nh home switch";
       nhbuild = "nh os switch"; # keeping nhbuild for retro-compatibility
-    
+
       # Git
       gs = "git status";
       ga = "git add";
@@ -29,10 +29,10 @@
 
     initContent = ''
       fastfetch
-    
+
       export PATH="$HOME/.local/bin:$PATH"
       export PATH="$HOME/.bun/bin:$PATH"
-    
+
       export PNPM_HOME="$HOME/.local/share/pnpm"
       case ":$PATH:" in
         *":$PNPM_HOME:"*) ;;

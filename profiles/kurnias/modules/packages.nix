@@ -1,8 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.ccnix.userProfile.packages;
-in {
+in
+{
   options.ccnix.userProfile.packages = {
     enableCliTools = lib.mkOption {
       type = lib.types.bool;
@@ -14,6 +20,12 @@ in {
       type = lib.types.bool;
       default = false; # Require opt-in
       description = "Installs theming tools like matugen, cava, and sassc.";
+    };
+
+    enableSystemUtilities = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Installs base utilities like wl-clipboard, pwvucontrol, etc.";
     };
   };
 
@@ -40,15 +52,15 @@ in {
         pkgs.fuzzel
       ])
 
-      # Unconditional Packages (always installed)
-      [
+      # Conditional System Utilities
+      (lib.mkIf cfg.enableSystemUtilities [
         pkgs.brightnessctl
         pkgs.cliphist
         pkgs.wl-clipboard
         pkgs.pwvucontrol
         pkgs.alsa-utils
         pkgs.alsa-tools
-      ]
+      ])
     ];
   };
 }

@@ -1,114 +1,151 @@
 # ❄️ CCNIX — Idiomatic NixOS & Home Manager Configuration
 
-Welcome to the **CCNIX** configuration repository! This codebase is built with extreme reproducibility, deep functional abstractions, and declarative APIs at its core. It is divided clearly between system-level definitions (`hosts`, `modules/nixos`, `profiles/core`) and user-specific dotfiles (`profiles/kurnias`).
+Welcome to **CCNIX**! 
+This repository serves as a meticulously engineered, 100% reproducible declarative NixOS configuration. It utilizes modern Flake inputs, API-first abstraction for all modules, and a clean separation of system hosts and user profiles.
+
+This README is designed to cover every practical action a user might want to perform within this codebase.
 
 ---
 
-## 📖 Basic Usage (Quick Start)
+## 📂 Project Structure Overview
 
-If you are just looking to deploy or rebuild the OS without worrying about how the modules work under the hood, this section is for you.
+Understanding the structure is the key to mastering this configuration:
+- `flake.nix` / `flake.lock`: Entry points. Pins dependencies globally and declares the target machines.
+- `hosts/`: Contains machine-specific entry points (like `ccnixos`). Features specifically bound to hardware go in `hardware-configuration.nix`.
+- `profiles/core/`: The absolute central hub for activating system-level options (networking, audio, system apps, docker).
+- `profiles/kurnias/`: Home Manager configurations and user-specific package toggles (themes, games, developer tools).
+- `modules/nixos/`: Pure API definitions for NixOS features (e.g., `docker.nix`, `desktop.nix`). Defines variables but **doesn't activate them**.
 
-### 1. Rebuilding the System
-This configuration utilizes `nh` (Nix Helper) for clean, colorful CLI outputs and strict flake integration.
+---
 
-Whenever you make a modification to the system variables you can rebuild the host OS via:
+## 🚀 1. The Basics: Building & Upgrading
+
+This setup relies heavily on the `nh` (Nix Helper) CLI, which simplifies traditional `nixos-rebuild` commands and tracks flakes effortlessly.
+
+### Rebuilding System Configurations
+When you modify anything inside `hosts/`, `profiles/core/`, or `modules/nixos/`, rebuild the OS locally using your zsh alias:
 ```bash
-# This wrapper alias is loaded into your zsh automatically!
-nixbuild
+nixbuild 
 # (Which effectively runs: nh os switch ~/CCNIX)
 ```
 
-To update your user-specific packages (Home Manager):
+### Rebuilding User Packages (Home Manager)
+When you modify anything inside `profiles/kurnias/`, rebuild your user space via:
 ```bash
 homebuild
 # (Which effectively runs: nh home switch ~/CCNIX)
 ```
 
-### 2. Updating Lock Files
-To bump packages to their newest `nixos-unstable` version:
+### Updating the Flake (Upgrading Packages)
+If you want to pull the latest versions of your packages from the `nixos-unstable` channel to upgrade your entire system:
 ```bash
 nix flake update
-nh os switch
+nixbuild
+```
+
+### Garbage Collection (Cleaning the Nix Store)
+Recover disk space safely by clearing unused Nix store paths while preserving the last 3 generations:
+```bash
+nh clean all --keep 3
 ```
 
 ---
 
-## 🛠️ Intermediate Usage (Configuring the System)
+## ⚙️ 2. Intermediate: Modifying the System
 
-The greatest strength of this config is the **Toggleable API** pattern. You do not need to read through hundreds of lines of confusing `.nix` logic to turn features on or off.
+You **never need to write heavy `.nix` logic to turn features on or off**. Everything has been wrapped using `lib.mkIf` and `lib.mkOption` toggles to create a clean API.
 
-All customizations are localized in:
-1. `hosts/ccnixos/configuration.nix` (Host Entrypoint)
-2. `profiles/core/default.nix` (System Services Profile)
-3. `profiles/kurnias/home.nix` (User Profile)
-
-### Turning Features On and Off
-Assume you want to disable Docker or modify the system hostname. Open `profiles/core/default.nix` and modify the configuration blocks:
+### Activating System Modules
+To toggle core features on your environment, open `profiles/core/default.nix`. You will see a list of logical switches like this:
 
 ```nix
-# Toggle Desktop UI
-ccnix.desktop.enable = true;
+  ccnix.system.boot.enable = true;
+  ccnix.virtualisation.docker.enable = true;
+  ccnix.desktop.enable = true;
+```
+To turn something off globally across the entire OS, just change `true` to `false` and run `nixbuild`.
 
-# Toggle Docker Daemon & Arion
-ccnix.virtualisation.docker.enable = false;
-
-# Customize Networking
-ccnix.networking = {
-  enable = true;
-  hostName = "new-ccnixos-hostname";
-  disableFirewall = false; # Set to true to drop the nftables/firewall daemon natively.
-};
+### Editing Networking Configurations
+Networking logic is exposed through a safe API in `profiles/core/default.nix`:
+```nix
+  ccnix.networking = {
+    enable = true;
+    hostName = "my-new-machine";
+    disableFirewall = false; # Set to true to drop the firewall natively via mkDefault overlays
+  };
 ```
 
-### Toggling Home Manager Packages
-To toggle bulk packages on or off without tracking down individual entries, edit `profiles/kurnias/home.nix`:
+### Managing Personal Apps & DevTools
+User-specific applications should be strictly categorized. Edit `profiles/kurnias/home.nix` to toggle your personal software bundles:
 ```nix
-ccnix.userProfile.packages = {
-  enableCliTools = true;      # Installs bat, eza, zoxide, btop
-  enableThemingTools = true;  # Installs cava, matugen, sassc
+  ccnix.userProfile.packages.enableSystemUtilities = true; # wl-clipboard, cliphist, etc.
+  ccnix.userProfile.packages.enableThemingTools = true;    # matugen, cava, sassc
+  ccnix.userProfile.devTools.enable = true;                # vscode, nvim, nodejs, rust, go
+  ccnix.userProfile.games.enable = true;                   # osu-lazer
+  ccnix.userProfile.apps.internet.enable = true;           # vesktop, zen-browser, firefox
+```
+
+### Managing Docker & Arion (Containerization)
+By ensuring `ccnix.virtualisation.docker.enable = true;` is active, your system automatically wires up Docker and Arion. Arion uses Nix modules to define `docker-compose` projects natively within the Nix store.
+
+To construct or edit your running containers, review `modules/nixos/docker.nix`. An Arion PostgreSQL database is already scaffolded there:
+```nix
+virtualisation.arion = {
+  backend = "docker";
+  projects = {
+    "db".settings.services."db".service = {
+      restart = "unless-stopped";
+      environment = { POSTGRES_PASSWORD = "password"; }; 
+    };
+  };
 };
 ```
 
 ---
 
-## 🧠 Advanced Usage (Writing Idiomatic Nix Modules)
+## 🧠 3. Advanced: Creating New Custom Modules
 
-If you intend to extend this Flake to add entirely new workflows (like a dedicated gaming profile, or a server infrastructure definition), follow the strict abstraction guidelines defined in this codebase.
+To ensure extreme reproducibility and prevent merge conflicts if you scale to multiple machines, **you must never hardcode `programs.<name>.enable = true` directly into a profile unless it is wrapped in an option.**
 
-### 1. Directory Strictness
-- **`modules/nixos/`**: Contains pure API definitions. **Do not put active configurations here**. Use `lib.mkEnableOption`, `lib.mkOption`, and `lib.mkIf`.
-- **`profiles/`**: These files pull in the `modules/nixos/` APIs and evaluate the variables to build distinct flavors.
-- **`hosts/`**: Contains ONLY the hardware generation (`hardware-configuration.nix`) and the master imports list.
+Let's assume you want to add an experimental **Video Editing** module.
 
-### 2. Creating a New Idiomatic Module
-When adding a new feature (e.g., `modules/nixos/gaming.nix`), do not do this:
+1. **Create the API file (`modules/nixos/video.nix`)**
 ```nix
-# BAD PATTERN (Hardcoded & Uncomposable)
-{ pkgs, ... }: {
-  programs.steam.enable = true;
-  environment.systemPackages = [ pkgs.mangohud ];
-}
-```
-
-Instead, use the `ccnix` scope strictly defined by `mkDefault` overlays:
-```nix
-# GOOD PATTERN (Inside modules/nixos/gaming.nix)
 { config, lib, pkgs, ... }:
+
 let
-  cfg = config.ccnix.gaming;
+  cfg = config.ccnix.multimedia.video;
 in {
-  options.ccnix.gaming = {
-    enable = lib.mkEnableOption "CCNIX gaming optimizations";
+  # Define your custom option API
+  options.ccnix.multimedia.video = {
+    enable = lib.mkEnableOption "Enable Davinci Resolve and related video tools";
   };
 
+  # Inject the exact logic ONLY if `enable` is checked.
   config = lib.mkIf cfg.enable {
-    programs.steam.enable = lib.mkDefault true;
-    environment.systemPackages = [ pkgs.mangohud ];
+    environment.systemPackages = [
+      pkgs.davinci-resolve
+      pkgs.ffmpeg
+    ];
   };
 }
 ```
 
-By ensuring every option is guarded behind an `options` declaration, adding new features will never crash independent profiles unless explicitly called.
+2. **Register the API (`profiles/core/default.nix`)**
+Make sure Nix is aware of your module by adding it to the `imports` list:
+```diff
+  imports = [
+    # ...
++   ../../modules/nixos/video.nix
+  ];
+```
 
-### 3. Avoiding Scope Leaks
-Do not use `with pkgs; [ wget git ];`. While tutorials show this, it obscures the environment closure. Always define explicitly: `[ pkgs.wget pkgs.git ];`.
+3. **Activate the API! (`profiles/core/default.nix`)**
+Now, anyone parsing your flake can provision the entire video editing setup cleanly via:
+```nix
+  ccnix.multimedia.video.enable = true;
+```
+
+### Critical Rules
+- **Prevent Scope Leaks:** When importing packages inside this repository, **do not use `with pkgs;`**. Always explicitly name the derivation constraint (e.g., `[ pkgs.firefox pkgs.git ]`) to ensure airtight builds that don't break as Nixpkgs evolves.
+- **Avoid Hardcoding Default Rejections:** If your module wants to turn something off (like printing), use `lib.mkDefault false;` so that dependent endpoints can securely flip it back to `true` without fatal evaluation errors.

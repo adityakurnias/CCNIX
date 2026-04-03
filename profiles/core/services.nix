@@ -1,8 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.ccnix.services;
-in {
+in
+{
   options.ccnix.services = {
     enableDesktopServices = lib.mkOption {
       type = lib.types.bool;

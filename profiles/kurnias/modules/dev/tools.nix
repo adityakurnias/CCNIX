@@ -1,39 +1,56 @@
-{ pkgs, ... }:
-
 {
-  home.packages = with pkgs; [
-    # Editors
-    vscode
-    neovim
-    zed-editor
-    jetbrains.idea
-    antigravity
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
-    # Languages
-    rustup
-    go
-    # javaPackages.compiler.temurin-bin.jdk-25
-    javaPackages.compiler.temurin-bin.jdk-21
-    ruby_4_0
+let
+  cfg = config.ccnix.userProfile.devTools;
+in
+{
+  options.ccnix.userProfile.devTools = {
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Installs the global developer toolchain. Enabling this adds significant weight to the environment closure.";
+    };
+  };
 
-    # DBq
-    sqlite
-    dbeaver-bin
-    
-    # LSP / FMT
-    nixd
-    nixfmt
+  config = lib.mkIf cfg.enable {
+    home.packages = [
+      # Editors
+      pkgs.vscode
+      pkgs.neovim
+      pkgs.zed-editor
+      pkgs.jetbrains.idea
+      pkgs.antigravity
 
-    # Tools
-    gh
-    ddev
-    android-tools
-    asdf-vm
-    
-    # JS devtools
-    nodejs_24
-    pnpm
-    deno
-    bun
-  ];
+      # Languages
+      pkgs.rustup
+      pkgs.go
+      pkgs.javaPackages.compiler.temurin-bin.jdk-21
+      pkgs.ruby_4_0
+
+      # DB
+      pkgs.sqlite
+      pkgs.dbeaver-bin
+
+      # LSP / FMT
+      pkgs.nixd
+      pkgs.nixfmt
+
+      # Tools
+      pkgs.gh
+      pkgs.ddev
+      pkgs.android-tools
+      pkgs.asdf-vm
+
+      # JS devtools
+      pkgs.nodejs_24
+      pkgs.pnpm
+      pkgs.deno
+      pkgs.bun
+    ];
+  };
 }

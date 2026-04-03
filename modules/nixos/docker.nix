@@ -1,7 +1,13 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.ccnix.virtualisation.docker;
-in {
+in
+{
   options.ccnix.virtualisation.docker = {
     enable = lib.mkEnableOption "Enable Docker and Arion environments";
   };
@@ -16,7 +22,9 @@ in {
       projects = {
         "db".settings.services."db".service = {
           restart = "unless-stopped";
-          environment = { POSTGRES_PASSWORD = "password"; };
+          environment = {
+            POSTGRES_PASSWORD = "password";
+          };
         };
       };
     };

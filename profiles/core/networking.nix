@@ -1,11 +1,17 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.ccnix.networking;
-in {
+in
+{
   options.ccnix.networking = {
     enable = lib.mkEnableOption "CCNIX standard networking configuration";
-    
+
     hostName = lib.mkOption {
       type = lib.types.str;
       default = "ccnixos";
@@ -22,7 +28,7 @@ in {
   config = lib.mkIf cfg.enable {
     networking.hostName = cfg.hostName;
     networking.networkmanager.enable = true;
-    
+
     # mkDefault allows you to easily override this in `configuration.nix` without throwing errors!
     networking.nftables.enable = lib.mkDefault (!cfg.disableFirewall);
     networking.firewall.enable = lib.mkDefault (!cfg.disableFirewall);
