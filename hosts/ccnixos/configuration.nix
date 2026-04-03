@@ -14,8 +14,6 @@
     inputs.dankMaterialShell.nixosModules.greeter
   ];
 
-  steam.enable = true;
-
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
