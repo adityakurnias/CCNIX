@@ -20,4 +20,11 @@
 
   ccnix.desktop.enable = true;
   ccnix.virtualisation.docker.enable = true;
+  
+  ccnix.networking = {
+    enable = true;
+    hostName = "ccnixos";
+  };
+
+  ccnix.hardware.audio.enable = true;
 }

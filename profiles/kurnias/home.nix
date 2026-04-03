@@ -9,7 +9,10 @@
 {
   home.username = "kurnias";
   home.homeDirectory = "/home/kurnias";
-  home.stateVersion = "25.05";
+  home.stateVersion = "23.11";
+
+  # Advanced Modules
+  ccnix.userProfile.packages.enableThemingTools = true;
 
   programs.home-manager.enable = true;
 

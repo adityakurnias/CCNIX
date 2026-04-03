@@ -1,19 +1,26 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
-{
-  services.pulseaudio.enable = false;
-
-  security.rtkit.enable = true;
-  
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true; 
+let
+  cfg = config.ccnix.hardware.audio;
+in {
+  options.ccnix.hardware.audio = {
+    enable = lib.mkEnableOption "CCNIX standard audio configuration via PipeWire";
   };
-  
-  environment.systemPackages = with pkgs; [
-    wireplumber
-  ];
+
+  config = lib.mkIf cfg.enable {
+    services.pulseaudio.enable = lib.mkDefault false;
+    security.rtkit.enable = lib.mkDefault true;
+    
+    services.pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true; 
+    };
+    
+    environment.systemPackages = [
+      pkgs.wireplumber
+    ];
+  };
 }
