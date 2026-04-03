@@ -2,13 +2,17 @@
   programs.zsh = {
     enable = true;
 
+    sessionVariables = {
+      FLAKE = "$HOME/CCNIX";
+    };
+
     shellAliases = {
       ll = "eza -lgh --icons";
       ls = "eza --icons";
     
-      nixbuild = "sudo nixos-rebuild switch --flake ~/CCNIX#ccnixos";
-      homebuild = "home-manager switch --flake ~/CCNIX#kurnias";
-      nhbuild = "nh os switch ~/CCNIX";
+      nixbuild = "nh os switch";
+      homebuild = "nh home switch";
+      nhbuild = "nh os switch"; # keeping nhbuild for retro-compatibility
     
       # Git
       gs = "git status";

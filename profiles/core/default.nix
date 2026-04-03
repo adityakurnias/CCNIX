@@ -10,9 +10,14 @@
     ./boot.nix
     ./networking.nix
     ./locales.nix
-    ./desktop.nix
     ./audio.nix
     ./steam
     ./dev
+
+    ../../modules/nixos/desktop.nix
+    ../../modules/nixos/docker.nix
   ];
+
+  ccnix.desktop.enable = true;
+  ccnix.virtualisation.docker.enable = true;
 }

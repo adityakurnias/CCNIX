@@ -59,7 +59,7 @@
           };
         }
     
-        ./hosts/configuration.nix
+        ./hosts/ccnixos/configuration.nix
         home-manager.nixosModules.home-manager
         arion.nixosModules.arion
     
@@ -67,7 +67,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.kurnias = import ./home/home.nix;
+            users.kurnias = import ./profiles/kurnias/home.nix;
             extraSpecialArgs = { 
               inherit inputs dankMaterialShell niri;
             };
@@ -79,7 +79,7 @@
     
     homeConfigurations.kurnias =
       home-manager.lib.homeManagerConfiguration {
-        modules = [ ./home/home.nix ];
+        modules = [ ./profiles/kurnias/home.nix ];
         extraSpecialArgs = {
           inherit inputs dankMaterialShell niri;
         };

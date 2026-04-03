@@ -3,8 +3,8 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../fw/firmware.nix
-    ../modules
+    ../../fw/firmware.nix
+    ../../profiles/core
     
     inputs.dankMaterialShell.nixosModules.greeter
   ];
