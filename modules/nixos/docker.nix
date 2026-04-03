@@ -28,5 +28,10 @@ in
         };
       };
     };
+
+    environment.systemPackages = [
+      pkgs.arion
+      pkgs.docker-compose
+    ];
   };
 }
