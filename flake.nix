@@ -28,9 +28,14 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    arion = {
+      url = "github:hercules-ci/arion";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, dankMaterialShell, niri, dgop, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, dankMaterialShell, niri, dgop, arion, ... }@inputs:
   let
     system = "x86_64-linux";
   in
@@ -56,6 +61,7 @@
     
         ./hosts/configuration.nix
         home-manager.nixosModules.home-manager
+        arion.nixosModules.arion
     
         {
           home-manager = {

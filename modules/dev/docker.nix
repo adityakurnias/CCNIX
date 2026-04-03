@@ -1,6 +1,17 @@
-{ lib, ... }:
-{
+{ config, lib, ... }: {
   virtualisation.docker.enable = true;
-  systemd.services.docker.enable = false;
-  systemd.services.docker.wantedBy = lib.mkForce [ ];
+
+  # Add user to docker group
+  users.users.kurnias.extraGroups = [ "docker" ];
+
+  virtualisation.arion = {
+    backend = "docker";
+    projects = {
+      "db".settings.services."db".service = {
+        image = "";
+        restart = "unless-stopped";
+        environment = { POSTGRESS_PASSWORD = "password"; };
+      };
+    };
+  };
 }

@@ -28,7 +28,6 @@
     gh
     ddev
     android-tools
-    arion
     asdf-vm
     
     # JS devtools
