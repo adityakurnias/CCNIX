@@ -1,26 +1,29 @@
 binds {
+    // Core Noctalia binds
     Mod+Space hotkey-overlay-title="Application Launcher" { 
-        spawn "noctalia-shell" "ipc" "call" "appLauncher" "toggle"; 
+        spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; 
+    }
+    Mod+S hotkey-overlay-title="Control Center" { 
+        spawn "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; 
+    }
+    Mod+Comma hotkey-overlay-title="Settings" { 
+        spawn "noctalia-shell" "ipc" "call" "settings" "toggle"; 
+    }
+
+    Mod+Period hotkey-overlay-title="Emoji & Symbols" { 
+        spawn "noctalia-shell" "ipc" "call" "launcher" "emoji"; 
     }
 
     Mod+V hotkey-overlay-title="Clipboard Manager" { 
-        spawn "noctalia-shell" "ipc" "call" "appLauncher" "toggle"; 
+        spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; 
     }
 
     Mod+M hotkey-overlay-title="Task Manager" { 
         spawn "noctalia-shell" "ipc" "call" "systemMonitor" "toggle"; 
     }
 
-    Mod+Comma hotkey-overlay-title="Settings" { 
-        spawn "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; 
-    }
-
     Mod+N hotkey-overlay-title="Notification Center" {
-        spawn "noctalia-shell" "ipc" "call" "notifications" "toggle"; 
-    }
-
-    Mod+Shift+N hotkey-overlay-title="Notepad" {
-      spawn "noctalia-shell" "ipc" "call" "notepad" "toggle";  
+        spawn "noctalia-shell" "ipc" "call" "notifications" "toggleHistory"; 
     }
     
     Mod+Alt+L hotkey-overlay-title="Lock Screen" { 
@@ -33,10 +36,10 @@ binds {
 
     // Audio
     XF86AudioRaiseVolume allow-when-locked=true {
-        spawn "noctalia-shell" "ipc" "call" "volume" "increase" "3";
+        spawn "noctalia-shell" "ipc" "call" "volume" "increase";
     }
     XF86AudioLowerVolume allow-when-locked=true {
-        spawn "noctalia-shell" "ipc" "call" "volume" "decrease" "3";
+        spawn "noctalia-shell" "ipc" "call" "volume" "decrease";
     }
     XF86AudioMute allow-when-locked=true {
         spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput";
@@ -45,11 +48,11 @@ binds {
         spawn "noctalia-shell" "ipc" "call" "volume" "muteInput";
     }
     
-    // BL
+    // Brightness
     XF86MonBrightnessUp allow-when-locked=true {
-       spawn "noctalia-shell" "ipc" "call" "brightness" "increase" "5";
+       spawn "noctalia-shell" "ipc" "call" "brightness" "increase";
     }
     XF86MonBrightnessDown allow-when-locked=true {
-       spawn "noctalia-shell" "ipc" "call" "brightness" "decrease" "5";
+       spawn "noctalia-shell" "ipc" "call" "brightness" "decrease";
     }  
 }

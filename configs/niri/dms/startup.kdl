@@ -1,0 +1,2 @@
+// DMS handles its own systemd service usually, but in case Niri needs to spawn it:
+// spawn-at-startup "dms" "run"
