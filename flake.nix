@@ -19,6 +19,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,7 +40,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, dankMaterialShell, niri, dgop, arion, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, dankMaterialShell, niri, dgop, arion, noctalia, ... }@inputs:
   let
     system = "x86_64-linux";
   in
@@ -69,7 +74,7 @@
             useUserPackages = true;
             users.kurnias = import ./profiles/kurnias/home.nix;
             extraSpecialArgs = { 
-              inherit inputs dankMaterialShell niri;
+              inherit inputs dankMaterialShell niri noctalia;
             };
             backupFileExtension = "backup";
           };
@@ -81,7 +86,7 @@
       home-manager.lib.homeManagerConfiguration {
         modules = [ ./profiles/kurnias/home.nix ];
         extraSpecialArgs = {
-          inherit inputs dankMaterialShell niri;
+          inherit inputs dankMaterialShell niri noctalia;
         };
       };
   };

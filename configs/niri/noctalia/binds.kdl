@@ -1,0 +1,55 @@
+binds {
+    Mod+Space hotkey-overlay-title="Application Launcher" { 
+        spawn "noctalia-shell" "ipc" "call" "appLauncher" "toggle"; 
+    }
+
+    Mod+V hotkey-overlay-title="Clipboard Manager" { 
+        spawn "noctalia-shell" "ipc" "call" "appLauncher" "toggle"; 
+    }
+
+    Mod+M hotkey-overlay-title="Task Manager" { 
+        spawn "noctalia-shell" "ipc" "call" "systemMonitor" "toggle"; 
+    }
+
+    Mod+Comma hotkey-overlay-title="Settings" { 
+        spawn "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; 
+    }
+
+    Mod+N hotkey-overlay-title="Notification Center" {
+        spawn "noctalia-shell" "ipc" "call" "notifications" "toggle"; 
+    }
+
+    Mod+Shift+N hotkey-overlay-title="Notepad" {
+      spawn "noctalia-shell" "ipc" "call" "notepad" "toggle";  
+    }
+    
+    Mod+Alt+L hotkey-overlay-title="Lock Screen" { 
+        spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; 
+    }
+
+    Ctrl+Alt+Delete hotkey-overlay-title="Session Menu" { 
+        spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; 
+    }    
+
+    // Audio
+    XF86AudioRaiseVolume allow-when-locked=true {
+        spawn "noctalia-shell" "ipc" "call" "volume" "increase" "3";
+    }
+    XF86AudioLowerVolume allow-when-locked=true {
+        spawn "noctalia-shell" "ipc" "call" "volume" "decrease" "3";
+    }
+    XF86AudioMute allow-when-locked=true {
+        spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput";
+    }
+    XF86AudioMicMute allow-when-locked=true {
+        spawn "noctalia-shell" "ipc" "call" "volume" "muteInput";
+    }
+    
+    // BL
+    XF86MonBrightnessUp allow-when-locked=true {
+       spawn "noctalia-shell" "ipc" "call" "brightness" "increase" "5";
+    }
+    XF86MonBrightnessDown allow-when-locked=true {
+       spawn "noctalia-shell" "ipc" "call" "brightness" "decrease" "5";
+    }  
+}
