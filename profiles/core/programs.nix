@@ -28,5 +28,9 @@ in
     virtualisation.waydroid.enable = false;
     virtualisation.libvirtd.enable = false;
     virtualisation.spiceUSBRedirection.enable = false;
-  };
+    
+    programs.nix-ld.libraries = with pkgs; [
+      portaudio
+    ];
+  };  
 }

@@ -32,7 +32,7 @@ in
       type = lib.types.bool;
       default = false;
       description = "Installs audio tools.";
-    }
+    };
   };
 
   config = {
@@ -72,7 +72,7 @@ in
       # Audio Tools
       (lib.mkIf cfg.enableAudioTools [
         pkgs.portaudio
-        pkgs.opus
+        # pkgs.opus
         pkgs.ffmpeg
         pkgs.espeak-ng
       ])

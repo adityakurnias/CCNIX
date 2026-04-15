@@ -28,6 +28,14 @@ in
     environment.systemPackages = [
       pkgs.wireplumber
       pkgs.libpulseaudio
+      pkgs.portaudio
+
     ];
+
+    environment.sessionVariables = {
+      LD_LIBRARY_PATH = lib.mkAfter [
+        "${pkgs.portaudio}/lib"
+      ];
+    };
   };
 }

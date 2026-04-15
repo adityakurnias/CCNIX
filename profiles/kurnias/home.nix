@@ -33,8 +33,4 @@
   ];
 
   ccnix.userProfile.desktop.shell = "noctalia-shell"; # Switch between "dank-material-shell" and "noctalia-shell"
-
-
-
-
 }

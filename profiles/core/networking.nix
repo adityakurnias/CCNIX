@@ -33,7 +33,7 @@ in
     networking.nftables.enable = lib.mkDefault (!cfg.disableFirewall);
     networking.firewall.enable = lib.mkDefault (!cfg.disableFirewall);
 
-    networking.interfaces.wlan0.ipv4.addresses = [{
+    networking.interfaces.enp1s0.ipv4.addresses = [{
       address = "192.168.1.12";
       prefixLength = 24;
     }];

@@ -34,7 +34,9 @@ in
       # Python
       pkgs.python3
       pkgs.python3Packages.pip
-      python3Packages.setuptools
+      pkgs.python3Packages.setuptools
+      pkgs.python3Packages.sounddevice
+      
       # pkgs.ruby_4_0
 
       # DB
