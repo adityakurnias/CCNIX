@@ -21,6 +21,7 @@ in
       backend = "docker";
       projects = {
         "db".settings.services."db".service = {
+          image = "postgres:latest";
           restart = "unless-stopped";
           environment = {
             POSTGRES_PASSWORD = "password";

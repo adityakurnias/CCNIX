@@ -11,7 +11,7 @@ binds {
     }
 
     Mod+V hotkey-overlay-title="Clipboard Manager" { 
-        spawn "noctalia-shell" "ipc" "call" "appLauncher" "toggle"; 
+        spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; 
     }
 
     Mod+M hotkey-overlay-title="Task Manager" { 

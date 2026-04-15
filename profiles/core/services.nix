@@ -17,13 +17,26 @@ in
     };
   };
 
-  config = lib.mkIf cfg.enableDesktopServices {
-    security.polkit.enable = lib.mkDefault true;
-    services.gnome.gnome-keyring.enable = lib.mkDefault true;
-    services.flatpak.enable = lib.mkDefault true;
-    services.printing.enable = lib.mkDefault false;
-    services.gvfs.enable = lib.mkDefault true;
-    services.upower.enable = lib.mkDefault true;
-    services.earlyoom.enable = lib.mkDefault true;
-  };
+  config = lib.mkMerge [
+
+    (lib.mkIf cfg.enableDesktopServices {
+      security.polkit.enable = lib.mkDefault true;
+      services.gnome.gnome-keyring.enable = lib.mkDefault true;
+      services.flatpak.enable = lib.mkDefault true;
+      services.printing.enable = lib.mkDefault false;
+      services.gvfs.enable = lib.mkDefault true;
+      services.upower.enable = lib.mkDefault true;
+      services.earlyoom.enable = lib.mkDefault true;
+    })
+
+    {
+      services.ddclient = {
+        enable = true;
+        protocol = "duckdns";
+        passwordFile = "/home/kurnias/CCNIX/secrets/duckdns-token";
+        domains = [ "kurnias.duckdns.org" ];
+      };
+    }
+
+  ];
 }

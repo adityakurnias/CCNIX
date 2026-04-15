@@ -50,9 +50,3 @@ shell_integration enabled
 
 # Dank color generation
 include dank-theme.conf
-
-
-# BEGIN_KITTY_THEME
-# Noctalia
-include current-theme.conf
-# END_KITTY_THEME

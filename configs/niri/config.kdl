@@ -75,18 +75,18 @@ layer-rule {
 
 /* Apps: blur them all without xray for a better look */
 window-rule {
-  background-effect {
-    blur true
-    xray false
-  }
+  // background-effect {
+  //   blur true
+  //   xray false
+  // }
 }
 
 /* Noctalia: blur everywhere without xray for a better look */
 layer-rule {
   match namespace="^noctalia-(background|launcher-overlay|dock)-.*$"
-  background-effect {
-    xray false
-  }
+  // background-effect {
+  //   xray false
+  // }
 }
 
 overview {
@@ -355,10 +355,15 @@ binds {
 include "dms/colors.kdl"
 include "dms/layout.kdl"
 include "dms/alttab.kdl"
-include "noctalia/binds.kdl"
 include "dms/wpblur.kdl"
 include "dms/outputs.kdl"
 
 include "dms/cursor.kdl"
 
 include "dms/windowrules.kdl"
+
+include "noctalia/binds.kdl"
+
+
+include "./noctalia.kdl"
+

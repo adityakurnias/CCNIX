@@ -38,6 +38,10 @@
         *":$PNPM_HOME:"*) ;;
         *) export PATH="$PNPM_HOME:$PATH" ;;
       esac
+
+      if [ -f $HOME/.zshrc.local ]; then
+        source $HOME/.zshrc.local
+      fi
     '';
 
     oh-my-zsh = {

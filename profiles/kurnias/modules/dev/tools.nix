@@ -30,11 +30,15 @@ in
       pkgs.rustup
       pkgs.go
       pkgs.javaPackages.compiler.temurin-bin.jdk-21
-      pkgs.ruby_4_0
+
+      # Python
+      pkgs.python3
+      pkgs.python3Packages.pip
+      python3Packages.setuptools
+      # pkgs.ruby_4_0
 
       # DB
       pkgs.sqlite
-      pkgs.dbeaver-bin
 
       # LSP / FMT
       pkgs.nixd
@@ -45,6 +49,10 @@ in
       pkgs.ddev
       pkgs.android-tools
       pkgs.asdf-vm
+      pkgs.zeroclaw
+      pkgs.uv
+      pkgs.lmstudio
+      pkgs.ollama
 
       # JS devtools
       pkgs.nodejs_24

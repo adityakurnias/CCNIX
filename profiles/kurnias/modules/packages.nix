@@ -18,7 +18,7 @@ in
 
     enableThemingTools = lib.mkOption {
       type = lib.types.bool;
-      default = false; # Require opt-in
+      default = false;
       description = "Installs theming tools like matugen, cava, and sassc.";
     };
 
@@ -27,6 +27,12 @@ in
       default = false;
       description = "Installs base utilities like wl-clipboard, pwvucontrol, etc.";
     };
+
+    enableAudioTools = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Installs audio tools.";
+    }
   };
 
   config = {
@@ -60,6 +66,15 @@ in
         pkgs.pwvucontrol
         pkgs.alsa-utils
         pkgs.alsa-tools
+        pkgs.lsof
+      ])
+
+      # Audio Tools
+      (lib.mkIf cfg.enableAudioTools [
+        pkgs.portaudio
+        pkgs.opus
+        pkgs.ffmpeg
+        pkgs.espeak-ng
       ])
     ];
   };

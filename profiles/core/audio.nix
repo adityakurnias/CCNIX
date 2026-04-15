@@ -27,6 +27,7 @@ in
 
     environment.systemPackages = [
       pkgs.wireplumber
+      pkgs.libpulseaudio
     ];
   };
 }
