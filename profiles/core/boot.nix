@@ -22,6 +22,9 @@ in
     boot.kernel.sysctl = {
       "vm.swappiness" = 10;
       "vm.vfs_cache_pressure" = 50;
+      
+      "net.ipv4.conf.all.arp_ignore" = 1;
+      "net.ipv4.conf.all.arp_announce" = 2;
     };
     boot.kernelPackages = pkgs.linuxPackages_zen;
     boot.initrd.checkJournalingFS = false;

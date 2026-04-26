@@ -51,9 +51,7 @@ in
       pkgs.ddev
       pkgs.android-tools
       pkgs.asdf-vm
-      pkgs.zeroclaw
       pkgs.uv
-      pkgs.lmstudio
       pkgs.ollama
 
       # JS devtools
