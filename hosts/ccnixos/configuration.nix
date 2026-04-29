@@ -24,5 +24,9 @@
     cores = 0;
   };
 
+  documentation.nixos.enable = false;
+  documentation.man.enable = false;
+  documentation.info.enable = false;
+
   system.stateVersion = "23.11";
 }

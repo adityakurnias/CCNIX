@@ -57,7 +57,7 @@ in
       # JS devtools
       pkgs.nodejs_24
       pkgs.pnpm
-      pkgs.deno
+      # pkgs.deno
       pkgs.bun
     ];
   };
