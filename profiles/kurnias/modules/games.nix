@@ -14,6 +14,8 @@ in
     description = "Enable gaming packages";
   };
   config = lib.mkIf cfg.enable {
-    home.packages = [ pkgs.osu-lazer-bin ];
+    home.packages = [ 
+      pkgs.osu-lazer-bin
+    ];
   };
 }

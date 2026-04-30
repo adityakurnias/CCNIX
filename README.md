@@ -81,7 +81,7 @@ User-specific applications should be strictly categorized. Edit `profiles/kurnia
   ccnix.userProfile.packages.enableSystemUtilities = true; # wl-clipboard, cliphist, etc.
   ccnix.userProfile.packages.enableThemingTools = true;    # matugen, cava, sassc
   ccnix.userProfile.devTools.enable = true;                # vscode, nvim, nodejs, rust, go
-  ccnix.userProfile.games.enable = true;                   # osu-lazer
+  ccnix.userProfile.games.enable = false;                  
   ccnix.userProfile.apps.internet.enable = true;           # vesktop, zen-browser, firefox
 ```
 
