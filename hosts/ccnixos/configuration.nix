@@ -23,6 +23,12 @@
     max-jobs = "auto";
     cores = 0;
     accept-flake-config = true;
+    substituters = [
+      "https://noctalia.cachix.org"
+    ];
+    trusted-public-keys = [
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+    ];
   };
 
   documentation.nixos.enable = false;

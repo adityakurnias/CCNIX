@@ -17,7 +17,7 @@ in
     home.packages = [
       pkgs.vesktop
       pkgs.discord
-      pkgs.dorion
+      pkgs.legcord
       pkgs.google-chrome
       pkgs.firefox
     ];

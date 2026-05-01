@@ -17,6 +17,7 @@ in
     home.packages = [
       pkgs.vlc
       pkgs.gimp
+      pkgs.openscreen
     ];
   };
 }

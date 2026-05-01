@@ -16,7 +16,7 @@ in
   config = lib.mkIf cfg.enable {
     home.packages = [
       pkgs.localsend
-      pkgs.scrcpy
+      pkgs.scrcpy 
       pkgs.nautilus
       pkgs.mangohud
       pkgs.kdePackages.dolphin
