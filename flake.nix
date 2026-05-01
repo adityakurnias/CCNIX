@@ -40,54 +40,81 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, dankMaterialShell, niri, dgop, arion, noctalia, ... }@inputs:
-  let
-    system = "x86_64-linux";
-  in
-  {
-    nixosConfigurations.ccnixos = nixpkgs.lib.nixosSystem {
-      inherit system;
-    
-      specialArgs = {
-        inherit inputs;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      dankMaterialShell,
+      niri,
+      dgop,
+      arion,
+      noctalia,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+    in
+    {
+      nixosConfigurations.ccnixos = nixpkgs.lib.nixosSystem {
+        inherit system;
+
+        specialArgs = {
+          inherit inputs;
+        };
+
+        modules = [
+          {
+            nixpkgs = {
+              config = {
+                allowUnfree = true;
+                permittedInsecurePackages = [
+                  "ventoy-1.1.12"
+                ];
+              };
+            };
+          }
+
+          ./hosts/ccnixos/configuration.nix
+          home-manager.nixosModules.home-manager
+          arion.nixosModules.arion
+
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.kurnias = import ./profiles/kurnias/home.nix;
+              extraSpecialArgs = {
+                inherit
+                  inputs
+                  dankMaterialShell
+                  niri
+                  noctalia
+                  ;
+              };
+              backupFileExtension = "backup";
+            };
+          }
+        ];
       };
-    
-      modules = [
-        {
-          nixpkgs = {
-            config = {
-              allowUnfree = true;
-              permittedInsecurePackages = [
-                "ventoy-1.1.12"
-              ];
-            };
-          };
-        }
-    
-        ./hosts/ccnixos/configuration.nix
-        home-manager.nixosModules.home-manager
-        arion.nixosModules.arion
-    
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.kurnias = import ./profiles/kurnias/home.nix;
-            extraSpecialArgs = { 
-              inherit inputs dankMaterialShell niri noctalia;
-            };
-            backupFileExtension = "backup";
-          };
-        }
-      ];
-    };
-    
-    homeConfigurations.kurnias =
-      home-manager.lib.homeManagerConfiguration {
+
+      homeConfigurations.kurnias = home-manager.lib.homeManagerConfiguration {
         modules = [ ./profiles/kurnias/home.nix ];
         extraSpecialArgs = {
-          inherit inputs dankMaterialShell niri noctalia;
+          inherit
+            inputs
+            dankMaterialShell
+            niri
+            noctalia
+            ;
         };
       };
+    };
+
+  nixConfig = {
+    extra-substituters = [ "https://noctalia.cachix.org" ];
+    extra-trusted-public-keys = [
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+    ];
   };
 }

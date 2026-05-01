@@ -29,13 +29,12 @@ in
 
         systemd = {
           enable = true;
-          restartIfChanged = true;
+          restartIfChanged = false;
         };
 
         dgop.package = inputs.dgop.packages.${pkgs.system}.default;
         quickshell.package = pkgs.quickshell;
       };
-
     })
 
     # Noctalia Shell

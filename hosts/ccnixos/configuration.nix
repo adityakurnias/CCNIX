@@ -22,6 +22,7 @@
   nix.settings = {
     max-jobs = "auto";
     cores = 0;
+    accept-flake-config = true;
   };
 
   documentation.nixos.enable = false;

@@ -15,7 +15,7 @@ in
   };
   config = lib.mkIf cfg.enable {
     home.packages = [ 
-      pkgs.osu-lazer-bin
+      # Add games here
     ];
   };
 }
