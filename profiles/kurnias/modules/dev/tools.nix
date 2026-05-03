@@ -25,6 +25,7 @@ in
       pkgs.zed-editor
       pkgs.jetbrains.idea
       pkgs.antigravity
+      pkgs.jetbrains-toolbox
 
       # Languages
       pkgs.rustup

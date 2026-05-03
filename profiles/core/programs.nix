@@ -12,7 +12,7 @@ in
     lib.mkEnableOption "CCNIX standard system programs and virtualisation";
   config = lib.mkIf cfg.enable {
     programs.dank-material-shell.greeter = {
-      enable = true;
+      enable = false;
       compositor.name = "niri";
     };
     programs.nh = {

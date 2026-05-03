@@ -22,13 +22,13 @@ in
     # Dank Material Shell
     (lib.mkIf (cfg.shell == "dank-material-shell") {
       programs.dank-material-shell = {
-        enable = true;
+        enable = false;
         niri = {
           includes.enable = false;
         };
 
         systemd = {
-          enable = true;
+          enable = false;
           restartIfChanged = false;
         };
 
