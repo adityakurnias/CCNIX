@@ -19,7 +19,7 @@
   ];
 
   ccnix.desktop.enable = true;
-  ccnix.virtualisation.docker.enable = false;
+  ccnix.virtualisation.docker.enable = true;
 
   ccnix.networking = {
     enable = true;
