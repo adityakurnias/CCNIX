@@ -17,19 +17,6 @@ in
 
     users.users.kurnias.extraGroups = [ "docker" ];
 
-    virtualisation.arion = {
-      backend = "docker";
-      projects = {
-        "db".settings.services."db".service = {
-          image = "postgres:latest";
-          restart = "unless-stopped";
-          environment = {
-            POSTGRES_PASSWORD = "password";
-          };
-        };
-      };
-    };
-
     environment.systemPackages = [
       pkgs.arion
       pkgs.docker-compose

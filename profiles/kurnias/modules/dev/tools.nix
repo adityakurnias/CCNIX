@@ -23,14 +23,17 @@ in
       pkgs.vscode
       pkgs.neovim
       pkgs.zed-editor
-      pkgs.jetbrains.idea
       pkgs.antigravity
       pkgs.jetbrains-toolbox
+      pkgs.unityhub
 
       # Languages
       pkgs.rustup
       pkgs.go
       pkgs.javaPackages.compiler.temurin-bin.jdk-21
+      pkgs.mono
+      pkgs.dotnet-sdk_8
+      pkgs.php84
 
       # Python
       pkgs.python3
@@ -42,6 +45,7 @@ in
 
       # DB
       pkgs.sqlite
+      pkgs.ma
 
       # LSP / FMT
       pkgs.nixd

@@ -7,8 +7,8 @@
     };
 
     shellAliases = {
-      ll = "eza -lgh --icons";
-      ls = "eza --icons";
+      ll = "eza -lgh --icons auto";
+      ls = "eza --icons auto";
 
       nixbuild = "nh os switch";
       homebuild = "nh home switch";
@@ -26,7 +26,7 @@
       gb = "git branch";
       gl = "git log --oneline --graph --decorate";
     };
-
+    
     initContent = ''
       fastfetch
 
