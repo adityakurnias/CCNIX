@@ -9,16 +9,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    dgop = {
-      url = "github:AvengeMedia/dgop";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    dankMaterialShell = {
-      url = "github:AvengeMedia/DankMaterialShell/stable";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,9 +35,7 @@
       self,
       nixpkgs,
       home-manager,
-      dankMaterialShell,
       niri,
-      dgop,
       arion,
       noctalia,
       ...
@@ -87,7 +75,6 @@
               extraSpecialArgs = {
                 inherit
                   inputs
-                  dankMaterialShell
                   niri
                   noctalia
                   ;
@@ -103,7 +90,6 @@
         extraSpecialArgs = {
           inherit
             inputs
-            dankMaterialShell
             niri
             noctalia
             ;

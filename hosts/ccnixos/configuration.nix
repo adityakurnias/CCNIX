@@ -10,8 +10,6 @@
     ./hardware-configuration.nix
     ../../fw/firmware.nix
     ../../profiles/core
-
-    inputs.dankMaterialShell.nixosModules.greeter
   ];
 
   nix.settings.experimental-features = [
