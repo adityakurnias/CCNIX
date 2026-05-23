@@ -11,10 +11,6 @@ in
   options.ccnix.system.programs.enable =
     lib.mkEnableOption "CCNIX standard system programs and virtualisation";
   config = lib.mkIf cfg.enable {
-    programs.dank-material-shell.greeter = {
-      enable = false;
-      compositor.name = "niri";
-    };
     programs.nh = {
       enable = true;
       flake = "/home/kurnias/CCNIX";
