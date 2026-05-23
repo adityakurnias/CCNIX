@@ -12,7 +12,6 @@
     ./locales.nix
     ./audio.nix
     ./steam
-    ./dev
 
     ../../modules/nixos/desktop.nix
     ../../modules/nixos/docker.nix
