@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.ccnix.userProfile.fonts;
+  cfg = config.ccnix.fonts;
 in
 {
-  options.ccnix.userProfile.fonts.enable = lib.mkOption {
+  options.ccnix.fonts.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
     description = "Enable fonts configuration";
@@ -17,7 +17,8 @@ in
   config = lib.mkIf cfg.enable {
     fonts = {
       fontconfig.enable = true;
-      
+      fontDir.enable = true;
+
       packages = with pkgs; [
         noto-fonts
         noto-fonts-cjk-sans

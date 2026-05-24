@@ -11,6 +11,7 @@
     ./networking.nix
     ./locales.nix
     ./audio.nix
+    ./fonts.nix
     ./steam
 
     ../../modules/nixos/desktop.nix
@@ -34,4 +35,5 @@
   ccnix.system.programs.enable = true;
   ccnix.system.users.enable = true;
   ccnix.gaming.steam.enable = true;
+  ccnix.fonts.enable = true;
 }
