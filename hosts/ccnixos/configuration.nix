@@ -12,6 +12,8 @@
     ../../profiles/core
   ];
 
+  fonts.fontDir.enable = true;
+
   nix.settings = {
     max-jobs = "auto";
     cores = 0;

@@ -13,21 +13,25 @@ in
     default = false;
     description = "Enable fonts configuration";
   };
+
   config = lib.mkIf cfg.enable {
-    fonts.fontconfig.enable = true;
-    home.packages = [
-      pkgs.noto-fonts
-      pkgs.noto-fonts-cjk-sans
-      pkgs.noto-fonts-cjk-serif
-      pkgs.noto-fonts-color-emoji
-      pkgs.inter
-      pkgs.font-awesome
-      pkgs.material-symbols
-      pkgs.fira-code-symbols
-      pkgs.jetbrains-mono
-      pkgs.fira-code
-      pkgs.nerd-fonts.caskaydia-cove
-      pkgs.rubik
-    ];
+    fonts = {
+      fontconfig.enable = true;
+      
+      packages = with pkgs; [
+        noto-fonts
+        noto-fonts-cjk-sans
+        noto-fonts-cjk-serif
+        noto-fonts-color-emoji
+        inter
+        font-awesome
+        material-symbols
+        fira-code-symbols
+        jetbrains-mono
+        fira-code
+        nerd-fonts.caskaydia-cove
+        rubik
+      ];
+    };
   };
 }
