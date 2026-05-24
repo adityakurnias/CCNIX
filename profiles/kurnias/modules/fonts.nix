@@ -15,7 +15,6 @@ in
   };
   config = lib.mkIf cfg.enable {
     fonts.fontconfig.enable = true;
-    fonts.fontDir.enable = true;
     home.packages = [
       pkgs.noto-fonts
       pkgs.noto-fonts-cjk-sans
