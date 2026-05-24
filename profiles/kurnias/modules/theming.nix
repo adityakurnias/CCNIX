@@ -7,6 +7,8 @@
     adwaita-qt
   ];
 
+  fonts.fontDir.enable = true;
+
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.bibata-cursors;
