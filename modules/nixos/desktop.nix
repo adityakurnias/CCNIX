@@ -26,9 +26,21 @@ in
       };
     };
 
-    # Avoid boot log output overlap on TTY
     systemd.services.greetd.serviceConfig = {
       Type = "idle";
+      StandardInput = "tty";
+      StandardOutput = "tty";
+      StandardError = "journal";
+      TTYReset = true;
+      TTYVHangup = true;
+      TTYVTDisallocate = true;
     };
+
+    boot.consoleLogLevel = 0;
+    boot.kernelParams = [
+      "quiet"
+      "systemd.show_status=auto"
+      "rd.systemd.show_status=false"
+    ];
   };
 }

@@ -22,6 +22,7 @@ in
       pkgs.woeusb
       pkgs.ventoy
       pkgs.nh
+      pkgs.nix-fast-build
     ];
     environment.shells = [ pkgs.zsh ];
   };

@@ -28,15 +28,5 @@ in
       services.upower.enable = lib.mkDefault true;
       services.earlyoom.enable = lib.mkDefault true;
     })
-
-    {
-      services.ddclient = {
-        enable = true;
-        protocol = "duckdns";
-        passwordFile = "/home/kurnias/CCNIX/secrets/duckdns-token";
-        domains = [ "kurnias.duckdns.org" ];
-      };
-    }
-
   ];
 }

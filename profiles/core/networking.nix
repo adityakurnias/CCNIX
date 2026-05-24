@@ -29,7 +29,6 @@ in
     networking.hostName = cfg.hostName;
     networking.networkmanager.enable = true;
 
-    # mkDefault allows you to easily override this in `configuration.nix` without throwing errors!
     networking.nftables.enable = lib.mkDefault (!cfg.disableFirewall);
     networking.firewall.enable = lib.mkDefault (!cfg.disableFirewall);
 

@@ -17,7 +17,7 @@ in
     boot.kernelParams = [
       "elevator=bfq"
       "libahci.ignore_sss=1"
-      "rootdelay=0"
+      "rootdelay=2"
     ];
     boot.kernel.sysctl = {
       "vm.swappiness" = 10;

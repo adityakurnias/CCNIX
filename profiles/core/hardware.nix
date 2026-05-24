@@ -21,9 +21,8 @@ in
       memoryPercent = 50;
     };
     powerManagement.cpuFreqGovernor = "performance";
-    nix.settings.auto-optimise-store = true;
     services.journald.extraConfig = "SystemMaxUse=200M\nRuntimeMaxUse=100M\nMaxFileSec=1week\n";
-    services.journald.storage = "volatile";
+    services.journald.storage = "auto";
     fileSystems."/".options = [
       "noatime"
       "nodiratime"
