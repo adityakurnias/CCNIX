@@ -15,7 +15,6 @@ in
   };
   config = lib.mkIf cfg.enable {
     home.packages = [
-      pkgs.vesktop
       pkgs.discord
       pkgs.legcord
       pkgs.google-chrome

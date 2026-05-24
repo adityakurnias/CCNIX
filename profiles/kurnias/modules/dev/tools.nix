@@ -34,6 +34,7 @@ in
       pkgs.mono
       pkgs.dotnet-sdk_8
       pkgs.php84
+      pkgs.ruby_4_0
 
       # Python
       pkgs.python3
@@ -41,11 +42,9 @@ in
       pkgs.python3Packages.setuptools
       pkgs.python3Packages.sounddevice
       
-      # pkgs.ruby_4_0
-
       # DB
       pkgs.sqlite
-      pkgs.ma
+      pkgs.mariadb
 
       # LSP / FMT
       pkgs.nixd
@@ -55,7 +54,6 @@ in
       pkgs.gh
       pkgs.ddev
       pkgs.android-tools
-      pkgs.asdf-vm
       pkgs.uv
       pkgs.ollama
 
