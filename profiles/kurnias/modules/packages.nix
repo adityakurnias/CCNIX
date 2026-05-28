@@ -50,11 +50,9 @@ in
       # Conditional Theming tools
       (lib.mkIf cfg.enableThemingTools [
         pkgs.cava
-        pkgs.gnome-themes-extra
         pkgs.gtk-engine-murrine
         pkgs.matugen
         pkgs.sassc
-        pkgs.gnome-tweaks
         pkgs.fuzzel
       ])
 

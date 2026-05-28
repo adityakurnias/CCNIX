@@ -18,7 +18,6 @@ in
       pkgs.discord
       pkgs.legcord
       pkgs.google-chrome
-      pkgs.firefox
     ];
     programs.zen-browser.enable = true;
   };
