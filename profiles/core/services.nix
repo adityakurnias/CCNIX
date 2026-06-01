@@ -26,6 +26,7 @@ in
       services.printing.enable = lib.mkDefault false;
       services.gvfs.enable = lib.mkDefault true;
       services.upower.enable = lib.mkDefault true;
+      services.power-profiles-daemon.enable = lib.mkDefault true;
       services.earlyoom.enable = lib.mkDefault true;
     })
   ];

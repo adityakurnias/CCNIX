@@ -14,6 +14,10 @@
 
   fonts.fontDir.enable = true;
 
+  environment.systemPackages = [
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+  ];
+
   nix.settings = {
     max-jobs = "auto";
     cores = 0;
@@ -24,7 +28,7 @@
       "nix-command"
       "flakes"
     ];
-    
+
     substituters = [
       "https://noctalia.cachix.org"
       "https://nix-community.cachix.org"

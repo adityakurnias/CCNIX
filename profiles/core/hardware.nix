@@ -14,6 +14,19 @@ in
     hardware.graphics = {
       enable = true;
       enable32Bit = true;
+      extraPackages = with pkgs; [
+        intel-media-driver
+        intel-vaapi-driver
+        libvdpau-va-gl
+      ];
+      extraPackages32 = with pkgs.pkgsi686Linux; [
+        intel-media-driver
+        intel-vaapi-driver
+        libvdpau-va-gl
+      ];
+    };
+    environment.sessionVariables = {
+      LIBVA_DRIVER_NAME = "iHD";
     };
     zramSwap = {
       enable = true;
@@ -28,6 +41,10 @@ in
       "nodiratime"
     ];
     systemd.services.NetworkManager-wait-online.enable = false;
+    hardware.bluetooth = {
+      enable = true;
+      powerOnBoot = false;
+    };
     services.fstrim.enable = true;
   };
 }

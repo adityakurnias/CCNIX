@@ -19,8 +19,9 @@ in
   config = lib.mkMerge [
     # Noctalia Shell
     (lib.mkIf (cfg.shell == "noctalia-shell") {
-      programs.noctalia-shell = {
+      programs.noctalia = {
         enable = true;
+        systemd.enable = true;
       };
     })
   ];

@@ -18,6 +18,7 @@ in
         "wheel"
         "audio"
         "video"
+        "render"
         "docker"
         "libglvnd"
       ];

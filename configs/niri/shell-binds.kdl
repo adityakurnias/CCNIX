@@ -1,58 +1,54 @@
 binds {
     // Core Noctalia binds
-    Mod+Space hotkey-overlay-title="Application Launcher" { 
-        spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; 
+    Mod+Space hotkey-overlay-title="Application Launcher" {
+        spawn-sh "noctalia msg panel-toggle launcher";
     }
-    Mod+S hotkey-overlay-title="Control Center" { 
-        spawn "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; 
+    Mod+S hotkey-overlay-title="Control Center" {
+        spawn-sh "noctalia msg panel-toggle control-center";
     }
-    Mod+Comma hotkey-overlay-title="Settings" { 
-        spawn "noctalia-shell" "ipc" "call" "settings" "toggle"; 
-    }
-
-    Mod+V hotkey-overlay-title="Clipboard Manager" { 
-        spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; 
+    Mod+Comma hotkey-overlay-title="Settings" {
+        spawn-sh "noctalia msg settings-toggle";
     }
 
-    Mod+M hotkey-overlay-title="Task Manager" { 
-        spawn "noctalia-shell" "ipc" "call" "systemMonitor" "toggle"; 
+    Mod+V hotkey-overlay-title="Clipboard Manager" {
+        spawn-sh "noctalia msg panel-toggle clipboard";
+    }
+
+    Mod+M hotkey-overlay-title="Task Manager" {
+        spawn-sh "noctalia msg panel-toggle control-center system";
     }
 
     Mod+N hotkey-overlay-title="Notification Center" {
-        spawn "noctalia-shell" "ipc" "call" "notifications" "toggle"; 
+        spawn-sh "noctalia msg panel-toggle control-center notifications";
     }
 
-    Mod+Shift+N hotkey-overlay-title="Notepad" {
-      spawn "noctalia-shell" "ipc" "call" "notepad" "toggle";  
-    }
-    
-    Mod+Alt+L hotkey-overlay-title="Lock Screen" { 
-        spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; 
+    Mod+Alt+L hotkey-overlay-title="Lock Screen" {
+        spawn-sh "noctalia msg session lock";
     }
 
-    Ctrl+Alt+Delete hotkey-overlay-title="Session Menu" { 
-        spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; 
-    }    
+    Ctrl+Alt+Delete hotkey-overlay-title="Session Menu" {
+        spawn-sh "noctalia msg panel-toggle session";
+    }
 
     // Audio
     XF86AudioRaiseVolume allow-when-locked=true {
-        spawn "noctalia-shell" "ipc" "call" "volume" "increase";
+        spawn-sh "noctalia msg volume-up";
     }
     XF86AudioLowerVolume allow-when-locked=true {
-        spawn "noctalia-shell" "ipc" "call" "volume" "decrease";
+        spawn-sh "noctalia msg volume-down";
     }
     XF86AudioMute allow-when-locked=true {
-        spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput";
+        spawn-sh "noctalia msg volume-mute";
     }
     XF86AudioMicMute allow-when-locked=true {
-        spawn "noctalia-shell" "ipc" "call" "volume" "muteInput";
+        spawn-sh "noctalia msg mic-mute";
     }
-    
+
     // Brightness
     XF86MonBrightnessUp allow-when-locked=true {
-       spawn "noctalia-shell" "ipc" "call" "brightness" "increase";
+       spawn-sh "noctalia msg brightness-up";
     }
     XF86MonBrightnessDown allow-when-locked=true {
-       spawn "noctalia-shell" "ipc" "call" "brightness" "decrease";
-    }  
+       spawn-sh "noctalia msg brightness-down";
+    }
 }
