@@ -18,6 +18,9 @@ in
         intel-media-driver
         intel-vaapi-driver
         libvdpau-va-gl
+        vulkan-loader
+        vulkan-validation-layers
+        intel-compute-runtime
       ];
       extraPackages32 = with pkgs.pkgsi686Linux; [
         intel-media-driver
@@ -25,14 +28,21 @@ in
         libvdpau-va-gl
       ];
     };
+    
+    environment.systemPackages = with pkgs; [
+      vulkan-tools # Menyediakan vulkaninfo dan vkcube untuk testing
+    ];
+    
     environment.sessionVariables = {
       LIBVA_DRIVER_NAME = "iHD";
     };
+    
     zramSwap = {
       enable = true;
       algorithm = "zstd";
       memoryPercent = 50;
     };
+    
     powerManagement.cpuFreqGovernor = "performance";
     services.journald.extraConfig = "SystemMaxUse=200M\nRuntimeMaxUse=100M\nMaxFileSec=1week\n";
     services.journald.storage = "auto";
@@ -40,11 +50,13 @@ in
       "noatime"
       "nodiratime"
     ];
+    
     systemd.services.NetworkManager-wait-online.enable = false;
     hardware.bluetooth = {
       enable = true;
       powerOnBoot = false;
     };
+    
     services.fstrim.enable = true;
   };
 }
