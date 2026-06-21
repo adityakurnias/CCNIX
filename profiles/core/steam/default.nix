@@ -8,7 +8,7 @@ let
   cfg = config.ccnix.gaming.steam;
 in
 {
-  options.ccnix.gaming.steam.enable = lib.mkEnableOption "Enable Steam support";
+  options.ccnix.gaming.steam.enable = lib.mkEnableOption "Enable Steam support and other gaming";
   config = lib.mkIf cfg.enable {
     programs.steam = {
       enable = true;
@@ -21,5 +21,11 @@ in
       pkgs.steam-run
       pkgs.gamescope
     ];
+    services.sunshine = {
+      enable = true;
+      autoStart = false;
+      capSysAdmin = true;
+      openFirewall = true;
+    };
   };
 }
