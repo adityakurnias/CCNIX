@@ -23,7 +23,7 @@ in
     environment.systemPackages = with pkgs; [
       vulkan-tools
       mesa-demos
-      xorg.xdpyinfo
+      xdpyinfo
     ];
 
     environment.sessionVariables = {
@@ -51,6 +51,8 @@ in
       enable = true;
       powerOnBoot = false;
     };
+
+    hardware.uinput.enable = true;
 
     services.fstrim.enable = true;
 

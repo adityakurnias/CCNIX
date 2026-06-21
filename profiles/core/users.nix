@@ -21,6 +21,7 @@ in
         "render"
         "docker"
         "libglvnd"
+        "uinput"
       ];
       shell = pkgs.zsh;
     };

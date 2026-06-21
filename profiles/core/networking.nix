@@ -52,6 +52,14 @@ in
       5678 # n8n
     ];
 
+    services.avahi = {
+      enable = true;
+      publish = {
+        enable = true;
+        userServices = true;
+      };
+    };
+
     environment.systemPackages = [
       pkgs.linux-wifi-hotspot
       pkgs.hostapd

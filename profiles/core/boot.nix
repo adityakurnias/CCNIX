@@ -13,7 +13,10 @@ in
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.systemd-boot.configurationLimit = 5;
-    boot.kernelModules = [ "snd_hda_intel" ];
+    boot.kernelModules = [
+      "snd_hda_intel"
+      "uinput"
+    ];
     boot.kernelParams = [
       "elevator=bfq"
       "libahci.ignore_sss=1"
@@ -23,7 +26,7 @@ in
       "vm.swappiness" = 100;
       "vm.page-cluster" = 0;
       "vm.vfs_cache_pressure" = 50;
-      
+
       "net.ipv4.conf.all.arp_ignore" = 1;
       "net.ipv4.conf.all.arp_announce" = 2;
     };

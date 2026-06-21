@@ -14,9 +14,16 @@ in
     description = "Enable gaming packages";
   };
   config = lib.mkIf cfg.enable {
-    home.packages = [ 
+    home.packages = [
       # Add games here
       # pkgs.osu-lazer-bin
     ];
+
+    services.sunshine = {
+      enable = true;
+      autoStart = false;
+      capSysAdmin = true; # only needed for Wayland -- omit this when using with Xorg
+      openFirewall = true;
+    };
   };
 }
