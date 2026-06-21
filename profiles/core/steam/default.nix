@@ -17,6 +17,9 @@ in
     };
     hardware.steam-hardware.enable = true;
     programs.gamemode.enable = true;
-    environment.systemPackages = [ pkgs.steam-run ];
+    environment.systemPackages = [
+      pkgs.steam-run
+      pkgs.gamescope
+    ];
   };
 }

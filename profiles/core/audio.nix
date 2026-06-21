@@ -30,6 +30,7 @@ in
       pkgs.libpulseaudio
       pkgs.portaudio
       pkgs.pulseaudio
+      pkgs.pciutils
     ];
   };
 }
