@@ -17,6 +17,15 @@ in
 
       extraPackages = with pkgs; [
         intel-media-driver
+        intel-vaapi-driver
+        vulkan-loader
+      ];
+
+      extraPackages32 = with pkgs.pkgsi686Linux; [
+        intel-media-driver
+        intel-vaapi-driver
+        vulkan-loader
+        mesa
       ];
     };
 
@@ -30,6 +39,7 @@ in
       LIBVA_DRIVER_NAME = "iHD";
       NIXOS_OZONE_WL = "1";
       vblank_mode = "0";
+      MESA_LOADER_DRIVER_OVERRIDE = "iris";
     };
 
     zramSwap = {

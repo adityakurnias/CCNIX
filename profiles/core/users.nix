@@ -20,7 +20,6 @@ in
         "video"
         "render"
         "docker"
-        "libglvnd"
         "uinput"
       ];
       shell = pkgs.zsh;
