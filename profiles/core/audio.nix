@@ -29,13 +29,7 @@ in
       pkgs.wireplumber
       pkgs.libpulseaudio
       pkgs.portaudio
-
+      pkgs.pulseaudio
     ];
-
-    environment.sessionVariables = {
-      LD_LIBRARY_PATH = lib.mkAfter [
-        "${pkgs.portaudio}/lib"
-      ];
-    };
   };
 }

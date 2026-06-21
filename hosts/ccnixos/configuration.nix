@@ -19,7 +19,7 @@
   ];
 
   nix.settings = {
-    max-jobs = "auto";
+    max-jobs = 2;
     cores = 0;
     accept-flake-config = true;
     auto-optimise-store = true;

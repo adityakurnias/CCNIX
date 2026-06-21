@@ -14,23 +14,15 @@ in
     hardware.graphics = {
       enable = true;
       enable32Bit = true;
+    
       extraPackages = with pkgs; [
         intel-media-driver
-        intel-vaapi-driver
-        libvdpau-va-gl
-        vulkan-loader
-        vulkan-validation-layers
-        intel-compute-runtime
-      ];
-      extraPackages32 = with pkgs.pkgsi686Linux; [
-        intel-media-driver
-        intel-vaapi-driver
-        libvdpau-va-gl
       ];
     };
     
     environment.systemPackages = with pkgs; [
-      vulkan-tools # Menyediakan vulkaninfo dan vkcube untuk testing
+      vulkan-tools
+      mesa-demos
     ];
     
     environment.sessionVariables = {
@@ -40,7 +32,7 @@ in
     zramSwap = {
       enable = true;
       algorithm = "zstd";
-      memoryPercent = 50;
+      memoryPercent = 100;
     };
     
     powerManagement.cpuFreqGovernor = "performance";
@@ -58,5 +50,7 @@ in
     };
     
     services.fstrim.enable = true;
+
+      hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   };
 }
