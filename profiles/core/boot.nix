@@ -37,5 +37,6 @@ in
       "xhci_pci"
       "sd_mod"
     ];
+    boot.initrd.kernelModules = [ "i915" ];
   };
 }

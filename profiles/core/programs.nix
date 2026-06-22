@@ -21,9 +21,9 @@ in
     programs.zsh.enable = true;
     users.groups.libvirtd.members = [ "kurnias" ];
     virtualisation.spiceUSBRedirection.enable = false;
-    
+
     programs.nix-ld.libraries = with pkgs; [
       portaudio
     ];
-  };  
+  };
 }

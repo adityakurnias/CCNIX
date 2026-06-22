@@ -13,7 +13,7 @@ in
     users.users.kurnias = {
       isNormalUser = true;
       description = "Kurnias";
-      extraGroups = [
+      extraGroups = [ 
         "networkmanager"
         "wheel"
         "audio"
