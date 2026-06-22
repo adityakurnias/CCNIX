@@ -19,7 +19,6 @@ in
     programs.gamemode.enable = true;
     environment.systemPackages = [
       pkgs.steam-run
-      pkgs.gamescope
     ];
     services.sunshine = {
       enable = true;

@@ -17,11 +17,14 @@ in
 
       extraPackages = with pkgs; [
         intel-media-driver
+        intel-vaapi-driver
+        vpl-gpu-rt
         intel-compute-runtime
       ];
 
       extraPackages32 = with pkgs.pkgsi686Linux; [
         intel-media-driver
+        intel-vaapi-driver
       ];
     };
 
@@ -29,6 +32,7 @@ in
       vulkan-tools
       mesa-demos
       xdpyinfo
+      xwayland-satellite
     ];
 
     environment.sessionVariables = {

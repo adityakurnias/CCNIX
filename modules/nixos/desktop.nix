@@ -13,7 +13,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    # services.xserver.enable = true;
+    services.xserver.enable = true;
     services.xserver.videoDrivers = [ "modesetting" ];
 
     services.greetd = {
