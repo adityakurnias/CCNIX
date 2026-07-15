@@ -27,7 +27,7 @@ input {
 }
 
 layout {
-    gaps 5
+    gaps 0
     background-color "transparent"
     // center-focused-column "always"
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
@@ -50,11 +50,13 @@ layout {
         urgent-color   "#cc4444"      // Softer red
     }
     focus-ring {
+        odd
         width 1
         active-color   "#808080"      // Medium gray
         inactive-color "#505050"      // Dark gray
     }
     shadow {
+        off
         softness 30
         spread 5
         offset x=0 y=5

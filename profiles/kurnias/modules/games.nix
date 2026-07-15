@@ -17,6 +17,9 @@ in
     home.packages = [
       # Add games here
       pkgs.osu-lazer-bin
+
+      # Launcher
+      pkgs.heroic
     ];
   };
 }

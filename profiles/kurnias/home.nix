@@ -16,7 +16,7 @@
   ccnix.userProfile.packages.enableSystemUtilities = true;
   ccnix.userProfile.packages.enableAudioTools = true;
   ccnix.userProfile.devTools.enable = true;
-  ccnix.userProfile.games.enable = false;
+  ccnix.userProfile.games.enable = true;
   ccnix.userProfile.apps.internet.enable = true;
   ccnix.userProfile.apps.multimedia.enable = true;
   ccnix.userProfile.apps.productivity.enable = true;
