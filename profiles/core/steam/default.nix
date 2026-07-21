@@ -19,6 +19,7 @@ in
     programs.gamemode.enable = true;
     environment.systemPackages = [
       pkgs.steam-run
+      pkgs.protontricks
     ];
     services.sunshine = {
       enable = true;

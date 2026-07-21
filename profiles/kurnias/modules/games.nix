@@ -20,6 +20,7 @@ in
 
       # Launcher
       pkgs.heroic
+      pkgs.lutris
     ];
   };
 }
