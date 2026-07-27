@@ -23,7 +23,7 @@ in
       pkgs.vscode
       pkgs.neovim
       pkgs.zed-editor
-      pkgs.antigravity
+      pkgs.antigravity-ide
       pkgs.jetbrains-toolbox
       pkgs.unityhub
 
