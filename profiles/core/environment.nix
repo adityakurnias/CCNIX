@@ -26,6 +26,7 @@ in
       pkgs.unrar
       pkgs.yazi
       pkgs.nix-fast-build
+      pkgs.ydotool
     ];
     environment.shells = [ pkgs.zsh ];
   };

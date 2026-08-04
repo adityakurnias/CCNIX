@@ -69,7 +69,6 @@ in
 
       # Audio Tools
       (lib.mkIf cfg.enableAudioTools [
-        pkgs.portaudio
         # pkgs.opus
         pkgs.ffmpeg
         pkgs.espeak-ng

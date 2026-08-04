@@ -28,6 +28,8 @@ in
       services.upower.enable = lib.mkDefault true;
       services.power-profiles-daemon.enable = lib.mkDefault true;
       services.earlyoom.enable = lib.mkDefault true;
+      services.envfs.enable = true;
+      services.gnome.at-spi2-core.enable = true;
     })
   ];
 }
