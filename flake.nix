@@ -28,10 +28,6 @@
       url = "github:hercules-ci/arion";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    hermes-agent = {
-      url = "github:NousResearch/hermes-agent";
-    };
   };
 
   outputs =
@@ -72,7 +68,6 @@
           
           home-manager.nixosModules.home-manager
           arion.nixosModules.arion
-          hermes-agent.nixosModules.default
 
           {
             home-manager = {

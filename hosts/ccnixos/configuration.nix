@@ -10,7 +10,6 @@
     ./hardware-configuration.nix
     ../../fw/firmware.nix
     ../../profiles/core
-    ../../profiles/kurnias/hermes-agent.nix
   ];
 
   fonts.fontDir.enable = true;
