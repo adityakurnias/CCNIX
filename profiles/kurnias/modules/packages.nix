@@ -50,7 +50,6 @@ in
       # Conditional Theming tools
       (lib.mkIf cfg.enableThemingTools [
         pkgs.cava
-        pkgs.gtk-engine-murrine
         pkgs.matugen
         pkgs.sassc
         pkgs.fuzzel

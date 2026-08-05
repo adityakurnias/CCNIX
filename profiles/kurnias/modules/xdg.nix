@@ -1,7 +1,12 @@
 {
   pkgs,
+  lib,
+  config,
   ...
 }:
+let
+  cfg = config.programs.niri or {};
+in
 {
   xdg.mime.enable = true;
 
@@ -18,7 +23,7 @@
 
   dconf.settings = {
     "org/gnome/desktop/default-applications/web" = {
-      browser = "zen-beta";
+    browser = "zen-beta.desktop";
     };
   };
 
@@ -30,7 +35,6 @@
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
       xdg-desktop-portal-gnome
     ];
 
@@ -38,9 +42,15 @@
       common.default = [ "gtk" ];
 
       niri = {
-        default = [ "gtk" ];
-        "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
-        "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
+        default = [
+          "gnome"
+          "gtk"
+        ];
+        "org.freedesktop.impl.portal.Access" = "gtk";
+        "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+        "org.freedesktop.impl.portal.ScreenCast" = [ "gtk" ];
+        "org.freedesktop.impl.portal.Screenshot" = [ "gtk" ];
+        "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
       };
     };
   };

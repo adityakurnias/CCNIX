@@ -10,9 +10,9 @@
       ll = "eza -lgh --icons auto";
       ls = "eza --icons auto";
 
-      nixbuild = "nh os switch";
+      nixbuild = "nixos-rebuild switch --flake ~/CCNIX#ccnixos";
       homebuild = "nh home switch";
-      nhbuild = "nh os switch"; # keeping nhbuild for retro-compatibility
+      nhbuild = "nh os switch"; 
 
       # Git
       gs = "git status";
@@ -29,15 +29,6 @@
     
     initContent = ''
       fastfetch
-
-      export PATH="$HOME/.local/bin:$PATH"
-      export PATH="$HOME/.bun/bin:$PATH"
-
-      export PNPM_HOME="$HOME/.local/share/pnpm"
-      case ":$PATH:" in
-        *":$PNPM_HOME:"*) ;;
-        *) export PATH="$PNPM_HOME:$PATH" ;;
-      esac
 
       if [ -f $HOME/.zshrc.local ]; then
         source $HOME/.zshrc.local

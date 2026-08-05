@@ -38,6 +38,7 @@ in
       dbus
       glib
 
+      portaudio
     ];
   };
 }

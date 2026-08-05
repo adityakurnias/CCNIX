@@ -28,6 +28,10 @@
       url = "github:hercules-ci/arion";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hermes-agent = {
+      url = "github:NousResearch/hermes-agent";
+    };
   };
 
   outputs =
@@ -38,6 +42,7 @@
       niri,
       arion,
       noctalia,
+      hermes-agent,
       ...
     }@inputs:
     let
@@ -58,15 +63,16 @@
                 allowUnfree = true;
                 permittedInsecurePackages = [
                   "ventoy-1.1.12"
-                  "pnpm-10.29.2"
                 ];
               };
             };
           }
 
           ./hosts/ccnixos/configuration.nix
+          
           home-manager.nixosModules.home-manager
           arion.nixosModules.arion
+          hermes-agent.nixosModules.default
 
           {
             home-manager = {
