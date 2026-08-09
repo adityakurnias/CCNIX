@@ -28,7 +28,6 @@ in
       pkgs.unityhub
 
       # Languages
-      pkgs.rustup
       pkgs.go
       pkgs.javaPackages.compiler.temurin-bin.jdk-21
       pkgs.mono

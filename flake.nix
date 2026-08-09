@@ -28,6 +28,11 @@
       url = "github:hercules-ci/arion";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -38,7 +43,7 @@
       niri,
       arion,
       noctalia,
-      hermes-agent,
+      fenix,
       ...
     }@inputs:
     let
@@ -55,6 +60,16 @@
         modules = [
           {
             nixpkgs = {
+              overlays = [
+                (
+                  _: super:
+                  let
+                    pkgs = fenix.inputs.nixpkgs.legacyPackages.${super.system};
+                  in
+                  fenix.overlays.default pkgs pkgs
+                )
+              ];
+
               config = {
                 allowUnfree = true;
                 permittedInsecurePackages = [
@@ -65,7 +80,13 @@
           }
 
           ./hosts/ccnixos/configuration.nix
-          
+
+          ({ pkgs, ... }: {
+            environment.systemPackages = with pkgs; [
+              fenix.complete.toolchain
+            ];
+          })
+
           home-manager.nixosModules.home-manager
           arion.nixosModules.arion
 
