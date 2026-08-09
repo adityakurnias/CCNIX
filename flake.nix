@@ -83,7 +83,7 @@
 
           ({ pkgs, ... }: {
             environment.systemPackages = [
-              (pkgs.fenix.complete.toolchain [
+              (pkgs.fenix.complete.withComponents [
                 "cargo"
                 "clippy"
                 "rust-src"
@@ -91,6 +91,7 @@
                 "rustfmt"
                 "rust-analyzer"
               ])
+              pkgs.gcc
             ];
           })
 
