@@ -82,8 +82,15 @@
           ./hosts/ccnixos/configuration.nix
 
           ({ pkgs, ... }: {
-            environment.systemPackages = with pkgs; [
-              fenix.complete.toolchain
+            environment.systemPackages = [
+              (pkgs.fenix.complete.toolchain [
+                "cargo"
+                "clippy"
+                "rust-src"
+                "rustc"
+                "rustfmt"
+                "rust-analyzer"
+              ])
             ];
           })
 
