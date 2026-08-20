@@ -43,6 +43,7 @@ in
       
       # DB
       pkgs.sqlite
+      pkgs.sqlite-vec
       pkgs.mariadb
 
       # LSP / FMT

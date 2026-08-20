@@ -19,6 +19,7 @@ in
       pkgs.aseprite
       pkgs.krita
       pkgs.inkscape
+      pkgs.obsidian
     ];
   };
 }
