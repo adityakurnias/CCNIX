@@ -30,6 +30,12 @@ in
       services.earlyoom.enable = lib.mkDefault true;
       services.envfs.enable = true;
       services.gnome.at-spi2-core.enable = true;
+      services.auto-cpufreq.enable = true;
+
+      services.ananicy = {
+        enable = true;
+        package = pkgs.ananicy-cpp; # Versi C++ lebih efisien.
+      };
     })
   ];
 }

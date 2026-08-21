@@ -43,7 +43,7 @@ in
     zramSwap = {
       enable = true;
       algorithm = "zstd";
-      memoryPercent = 100;
+      memoryPercent = 80;
     };
 
     powerManagement.cpuFreqGovernor = "performance";
@@ -61,8 +61,6 @@ in
     };
 
     hardware.uinput.enable = true;
-
-    services.fstrim.enable = true;
 
     hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   };

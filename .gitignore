@@ -1,3 +1,4 @@
-./hosts/hardware-configuration.nix
-secrets/
-.venv
+/hosts/ccnixos/hardware-configuration.nix
+/secrets
+/.venv
+/result

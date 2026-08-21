@@ -35,12 +35,5 @@ in
       TTYVHangup = true;
       TTYVTDisallocate = true;
     };
-
-    boot.consoleLogLevel = 0;
-    boot.kernelParams = [
-      "quiet"
-      "systemd.show_status=auto"
-      "rd.systemd.show_status=false"
-    ];
   };
 }

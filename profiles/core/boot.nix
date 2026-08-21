@@ -13,6 +13,7 @@ in
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
     boot.loader.systemd-boot.configurationLimit = 5;
+    boot.consoleLogLevel = 0;
     boot.kernelModules = [
       "snd_hda_intel"
       "uinput"
@@ -21,6 +22,9 @@ in
       "elevator=bfq"
       "libahci.ignore_sss=1"
       "rootdelay=2"
+      "quiet"
+      "systemd.show_status=auto"
+      "rd.systemd.show_status=false"
     ];
     boot.kernel.sysctl = {
       "vm.swappiness" = 100;

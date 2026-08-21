@@ -24,6 +24,8 @@
     cores = 0;
     accept-flake-config = true;
     auto-optimise-store = true;
+    daemon-cpu-scheduler-priority = "idle";
+    daemon-io-scheduler-class = "idle";
 
     experimental-features = [
       "nix-command"
