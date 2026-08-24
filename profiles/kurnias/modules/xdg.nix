@@ -47,10 +47,10 @@ in
           "gtk"
           "gnome"
         ];
-        "org.freedesktop.impl.portal.Access" = "gtk";
-        "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
-        "org.freedesktop.impl.portal.ScreenCast" = [ "gtk" ];
-        "org.freedesktop.impl.portal.Screenshot" = [ "gtk" ];
+        "org.freedesktop.impl.portal.Access" = "gnome";
+        "org.freedesktop.impl.portal.FileChooser" = [ "gnome" ];
+        "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
+        "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
         "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
       };
     };

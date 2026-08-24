@@ -60,6 +60,7 @@ in
       pkgs.iw
       pkgs.procps
       pkgs.util-linux
+      pkgs.openssl
     ];
   };
 }

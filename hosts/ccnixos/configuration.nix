@@ -19,29 +19,29 @@
     pkgs.libdisplay-info
   ];
 
-  nix.settings = {
-    max-jobs = 2;
-    cores = 0;
-    accept-flake-config = true;
-    auto-optimise-store = true;
-    daemon-cpu-scheduler-priority = "idle";
-    daemon-io-scheduler-class = "idle";
+  nix = {
+    settings = {
+      max-jobs = 2;
+      cores = 0;
+      accept-flake-config = true;
+      auto-optimise-store = true;
 
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
 
-    substituters = [
-      "https://noctalia.cachix.org"
-      "https://nix-community.cachix.org"
-      "https://niri.cachix.org"
-    ];
-    trusted-public-keys = [
-      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
-    ];
+      substituters = [
+        "https://noctalia.cachix.org"
+        "https://nix-community.cachix.org"
+        "https://niri.cachix.org"
+      ];
+      trusted-public-keys = [
+        "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+      ];
+    };
   };
 
   documentation.nixos.enable = false;
