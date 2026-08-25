@@ -15,7 +15,6 @@
   fonts.fontDir.enable = true;
 
   environment.systemPackages = [
-    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs.libdisplay-info
   ];
 

@@ -2,12 +2,17 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 let
   cfg = config.ccnix.desktop;
 in
 {
+  imports = [
+    inputs.noctalia.nixosModules.default
+  ];
+
   options.ccnix.desktop = {
     enable = lib.mkEnableOption "Enable Desktop configuration";
   };
@@ -34,6 +39,12 @@ in
       TTYReset = true;
       TTYVHangup = true;
       TTYVTDisallocate = true;
+    };
+
+    programs.noctalia = {
+      enable = true;
+      systemd.enable = true;
+      recommendedServices.enable = true;
     };
   };
 }

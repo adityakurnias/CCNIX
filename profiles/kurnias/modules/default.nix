@@ -7,7 +7,7 @@
     ./games.nix
     ./packages.nix
     ./shell.nix
-    ./desktop.nix
+    # ./desktop.nix
     ./theming.nix
     ./xdg.nix
   ];
