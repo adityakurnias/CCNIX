@@ -47,8 +47,16 @@ in
     };
 
     powerManagement.cpuFreqGovernor = "performance";
-    services.journald.extraConfig = "SystemMaxUse=200M\nRuntimeMaxUse=100M\nMaxFileSec=1week\n";
-    services.journald.storage = "auto";
+    services.journald = {
+      settings = {
+        Journal = {
+          SystemMaxUse = "200M";
+          RuntimeMaxUse = "100M";
+          MaxFileSec = "1week";
+          Storage = "auto";
+        };
+      };
+    };
     fileSystems."/".options = [
       "noatime"
       "nodiratime"

@@ -74,6 +74,7 @@
                 allowUnfree = true;
                 permittedInsecurePackages = [
                   "ventoy-1.1.17"
+                  "electron-41.10.6"
                 ];
               };
             };

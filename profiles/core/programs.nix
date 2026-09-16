@@ -15,9 +15,22 @@ in
       enable = true;
       flake = "/home/kurnias/CCNIX";
     };
+
+    programs.zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
+    programs.zsh.enable = true;
+
+    programs.direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
+    };
+
     programs.niri.enable = true;
     programs.xwayland.enable = true;
-    programs.zsh.enable = true;
     users.groups.libvirtd.members = [ "kurnias" ];
     virtualisation.spiceUSBRedirection.enable = false;
     programs.dconf.enable = true;
@@ -40,11 +53,5 @@ in
 
       portaudio
     ];
-
-    programs.direnv = {
-      enable = true;
-      enableZshIntegration = true;
-      nix-direnv.enable = true;
-    };
   };
 }

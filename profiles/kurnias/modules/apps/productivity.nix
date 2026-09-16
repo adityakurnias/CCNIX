@@ -15,7 +15,6 @@ in
   };
   config = lib.mkIf cfg.enable {
     home.packages = [ 
-      pkgs.libreoffice-fresh
       pkgs.aseprite
       pkgs.krita
       pkgs.inkscape

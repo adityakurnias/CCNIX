@@ -41,7 +41,6 @@ in
       (lib.mkIf cfg.enableCliTools [
         pkgs.eza
         pkgs.bat
-        pkgs.zoxide
         pkgs.fastfetch
         pkgs.tree
         pkgs.btop

@@ -33,7 +33,7 @@ in
       pkgs.mono
       pkgs.dotnet-sdk_8
       pkgs.php84
-      pkgs.ruby_4_0
+      # pkgs.ruby_4_0
 
       # Python
       pkgs.python3
@@ -52,10 +52,10 @@ in
 
       # Tools
       pkgs.gh
-      pkgs.ddev
+      # pkgs.ddev
       pkgs.android-tools
       pkgs.uv
-      pkgs.ollama
+      # pkgs.ollama
 
       # JS devtools
       pkgs.nodejs_24
