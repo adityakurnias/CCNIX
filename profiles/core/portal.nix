@@ -1,7 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  # Konfigurasi XDG Portal untuk system-level DBus
   xdg.portal = {
     enable = true;
     
@@ -13,7 +12,7 @@
     config = {
       common.default = [ "gtk" ];
       
-      niri = {
+      niri = lib.mkForce{
         default = [ "gtk" "gnome" ];
         "org.freedesktop.impl.portal.Access" = [ "gnome" ];
         "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
