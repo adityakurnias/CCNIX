@@ -29,7 +29,8 @@ in
 
       # Languages
       pkgs.go
-      pkgs.javaPackages.compiler.temurin-bin.jdk-21
+      pkgs.temurin-bin-21
+      pkgs.openjfx
       pkgs.mono
       pkgs.dotnet-sdk_8
       pkgs.php84
