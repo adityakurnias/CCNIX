@@ -12,6 +12,7 @@
     ./locales.nix
     ./audio.nix
     ./fonts.nix
+    ./portal.nix
     ./steam
 
     ../../modules/nixos/desktop.nix

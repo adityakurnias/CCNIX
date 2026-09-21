@@ -32,6 +32,10 @@ in
     networking.nftables.enable = lib.mkDefault (!cfg.disableFirewall);
     networking.firewall.enable = lib.mkDefault (!cfg.disableFirewall);
 
+    networking.firewall.checkReversePath = lib.mkIf (!cfg.disableFirewall) "loose";
+
+    networking.firewall.trustedInterfaces = lib.mkIf (!cfg.disableFirewall) [ "wg0" "tun0" ];
+
     networking.defaultGateway = "192.168.1.1";
 
     networking.nameservers = [
@@ -61,6 +65,8 @@ in
       pkgs.procps
       pkgs.util-linux
       pkgs.openssl
+      pkgs.protonvpn-gui
+      pkgs.wireguard-tools
     ];
   };
 }
